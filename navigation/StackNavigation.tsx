@@ -2,6 +2,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import InitialScreen from '../Screen/InitialScreen';
+import HomeScreen from '../Screen/HomeScreen';
 
 const HomeStack = createNativeStackNavigator();
 const OrderStack = createNativeStackNavigator();
@@ -11,7 +12,7 @@ const StackConfig = {headerShown: false};
 export function Dashboard(props: any) {
   return (
     <HomeStack.Navigator screenOptions={StackConfig}>
-      <HomeStack.Screen name="InitialScreen" component={InitialScreen} />
+      <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
     </HomeStack.Navigator>
   );
 }
