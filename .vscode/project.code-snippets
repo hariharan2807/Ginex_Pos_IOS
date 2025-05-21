@@ -1,0 +1,100 @@
+{
+	"tailwindStyleBlock": {
+		"scope": "typescriptreact",
+		"prefix": "makestyle",
+		"body": [
+			" style={[tailwind('$1')$2]}"
+		],
+		"description": "tailwind Style Basic Block"
+	},
+	"BasicStyleView": {
+		"scope": "typescriptreact",
+		"prefix": "stView",
+		"body": [
+			"<View style={[tailwind('$1')$2]}>",
+			"   ",
+			"</View>"
+		],
+		"description": "Basic Local View"
+	},
+	"BasicStyleImage": {
+		"scope": "typescriptreact",
+		"prefix": "stImage",
+		"body": [
+			"<Image",
+			"resizeMode='contain'",
+			"style={[tailwind(''), {height: 300, width: 200}]}",
+			"source={assets_manifest.splash}",
+			"/>",
+		],
+		"description": "Basic Local Image"
+	},
+	"BasicStyleText": {
+		"scope": "typescriptreact",
+		"prefix": "stText",
+		"body": [
+			"<Text style={[tailwind('font-regular font-15')]}>${1}</Text>",
+		],
+		"description": "Basic Text"
+	},
+	"BasicScreen": {
+		"scope": "typescriptreact",
+		"prefix": "newScreen",
+		"body": [
+			"import React from 'react';",
+			"import { Text, View,useWindowDimensions } from 'react-native';",
+			"import tailwind from '@tailwind';",
+			"import {useNavigation} from '@react-navigation/native';",
+			"export default function BluePrintScreen() {",
+			"const {height, width} = useWindowDimensions();",
+			"const navigation = useNavigation();",
+			"const NavigateTo=()=>  {",
+			"navigation.navigate('')}",
+			"return (",
+			"<View style={[tailwind('h-full items-center ')]}>",
+			" <Topbar title={'Create Account'} />",
+			"<Text style={[tailwind('font-regular font-15')]}>BluePrintScreen</Text>",
+			"</View>",
+			")",
+			"}",
+		],
+		"description": "Basic Screen desighn"
+	},
+	"BasicComponent": {
+		"scope": "typescriptreact",
+		"prefix": "newcomponent",
+		"body": [
+			"import React, { useRef } from 'react';",
+			"import { Text, View,useWindowDimensions,FlatList } from 'react-native';",
+			"import tailwind from '@tailwind';",
+			"import {useNavigation} from '@react-navigation/native';",
+			"export default function BluePrintComponent(props:BluePrintComponentType) {",
+			" const ref = useRef<FlatList>(null);",
+			"const {height, width} = useWindowDimensions();",
+			"const navigation = useNavigation();",
+			"const NavigateTo=()=>  {",
+			"navigation.navigate('')}",
+			"  const DemoData = [{na:1},{na:2},{na:3},{na:4},{na:5}]",
+			"return (",
+			"<View style={[tailwind('h-full items-center ')]}>",
+			" <FlatList",
+			"ref={ref}",
+			"keyExtractor={index => index}",
+			"data={DemoData}",
+			"showsVerticalScrollIndicator={false}",
+			"renderItem={({item, index}) => {",
+			"return (",
+			"<View key={index}>",
+			"</View>",
+			");",
+			"}}",
+			"/>",
+			"{ DemoData.map((item, index)=>{ return(<View key={index}></View>)})}",
+			"</View>",
+			")",
+			"}",
+			"interface BluePrintComponentType{}"
+		],
+		"description": "Basic componenet design"
+	}
+}

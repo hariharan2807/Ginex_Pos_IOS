@@ -1,0 +1,39 @@
+/* eslint-disable prettier/prettier */
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import InitialScreen from '../Screen/InitialScreen';
+
+const HomeStack = createNativeStackNavigator();
+const OrderStack = createNativeStackNavigator();
+const AccountStack = createNativeStackNavigator();
+const StackConfig = {headerShown: false};
+
+export function Dashboard(props: any) {
+  return (
+    <HomeStack.Navigator screenOptions={StackConfig}>
+      <HomeStack.Screen name="InitialScreen" component={InitialScreen} />
+    </HomeStack.Navigator>
+  );
+}
+export function Order(props: any) {
+  return (
+    <OrderStack.Navigator screenOptions={StackConfig}>
+           <AccountStack.Screen
+        name="InitialScreen"
+        component={InitialScreen}
+      />
+      {/* <OrderStack.Screen name="OrderScreen" component={OrderScreen} /> */}
+    </OrderStack.Navigator>
+  );
+}
+export function Account(props: any) {
+  return (
+    <AccountStack.Navigator screenOptions={StackConfig}>
+      <AccountStack.Screen name="AccountScreen" component={InitialScreen} />
+      <AccountStack.Screen
+        name="TomorrowOrderScreen"
+        component={InitialScreen}
+      />
+    </AccountStack.Navigator>
+  );
+}
