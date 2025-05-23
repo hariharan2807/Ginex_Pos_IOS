@@ -1,0 +1,205 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "asset/Temp/onboard.png",
+      "sha1": "7a4bcdc3214c8277311e6e66e1090e02990531e4"
+    },
+    {
+      "path": "asset/Temp/temp_pro_pic.png",
+      "sha1": "b55fcae659709247171b79bdbe3a472f8630c355"
+    },
+    {
+      "path": "asset/fonts/Milliard-Bold.otf",
+      "sha1": "cad1e016262c5ddfd2677c4b899e08e7158604c4"
+    },
+    {
+      "path": "asset/fonts/Milliard-Light.otf",
+      "sha1": "68cb10a5f4cbc4340f69d4061c2ddc052f6b7c18"
+    },
+    {
+      "path": "asset/fonts/Milliard-Medium.otf",
+      "sha1": "80b35e03febf257919dc801eb07f808122055f8e"
+    },
+    {
+      "path": "asset/fonts/Milliard-SemiBold.otf",
+      "sha1": "158d2cb3c0b7a00efaf45df6adfe8a444fd783d9"
+    },
+    {
+      "path": "asset/fonts/Mulish-Bold.ttf",
+      "sha1": "97cb4086e384a1e2e8688985b7eb8cbbc63354cb"
+    },
+    {
+      "path": "asset/fonts/Mulish-Light.ttf",
+      "sha1": "25efbd3c907aa50302047815ce8049bed0b613e2"
+    },
+    {
+      "path": "asset/fonts/Mulish-Regular.ttf",
+      "sha1": "65aa946a76999c7fe9a6b4478e9c35db9c80b137"
+    },
+    {
+      "path": "asset/fonts/Mulish-SemiBold.ttf",
+      "sha1": "0935586660615fe1c41fc1bc8aa3a5e0c8c744a8"
+    },
+    {
+      "path": "asset/icons/SvgIcon/AccountFocusIcon.tsx",
+      "sha1": "84547704a017c02f8827b576eeb9ac1ed356e39c"
+    },
+    {
+      "path": "asset/icons/SvgIcon/AccountIcon.tsx",
+      "sha1": "a5e5a12dcf5736c216b487e81566fa9d061b6b76"
+    },
+    {
+      "path": "asset/icons/SvgIcon/CalendarIcon.tsx",
+      "sha1": "c822ba464049cd439164426e1dca84612f96a382"
+    },
+    {
+      "path": "asset/icons/SvgIcon/CallIcon.tsx",
+      "sha1": "9896b31aaa985940bc65454916dbdf8fb8f8c8f6"
+    },
+    {
+      "path": "asset/icons/SvgIcon/CartFocusIcon.tsx",
+      "sha1": "d91dcf0392655d2ebf075476fa748cda866960a0"
+    },
+    {
+      "path": "asset/icons/SvgIcon/CartIcon.tsx",
+      "sha1": "3c32978ff8e2cf0ee4b0bad7927e85e12ef44b56"
+    },
+    {
+      "path": "asset/icons/SvgIcon/DashBoard.tsx",
+      "sha1": "923dae36d6a1923594423dbfa8e800f1a8065fd5"
+    },
+    {
+      "path": "asset/icons/SvgIcon/DashBoardFill.tsx",
+      "sha1": "109ce96ad852137c0980b1ba5c8a9a9d5595d8cd"
+    },
+    {
+      "path": "asset/icons/SvgIcon/HomeIcon.tsx",
+      "sha1": "570512fe9d548b59d15d89d5a80d54badb4d66c5"
+    },
+    {
+      "path": "asset/icons/SvgIcon/HomeIconFocus.tsx",
+      "sha1": "4d01eb216279933073646c713d2dbc123e795602"
+    },
+    {
+      "path": "asset/icons/SvgIcon/SearchFocusIcon.tsx",
+      "sha1": "d4227ed022baa19ab7f7c5d63ef7242fbd6fac1f"
+    },
+    {
+      "path": "asset/icons/SvgIcon/SearchIcon.tsx",
+      "sha1": "ed5f17c5f5d07dbd4fc0e3b098d30515594ebfde"
+    },
+    {
+      "path": "asset/icons/camera.png",
+      "sha1": "7b64acf229cbf94fa3f8bfd0cd90f01354da965d"
+    },
+    {
+      "path": "asset/icons/delivery_seal.png",
+      "sha1": "d1334985bb9fdf3a08505d295f149284f9956258"
+    },
+    {
+      "path": "asset/icons/delivery_stamp.png",
+      "sha1": "d2cbd14dc083b7bb8d8a5c3ff42f8176045d18a8"
+    },
+    {
+      "path": "asset/icons/edit_profile.png",
+      "sha1": "ee66cee12dc9a68730e5490c099700ab99f47d8a"
+    },
+    {
+      "path": "asset/icons/edit_profile_image.png",
+      "sha1": "fd0143174dc646265418d657072c359153715a87"
+    },
+    {
+      "path": "asset/icons/fail.png",
+      "sha1": "24c18c847414fdad3854769cee9263a4b57d8407"
+    },
+    {
+      "path": "asset/icons/g_round.png",
+      "sha1": "8890e6a4cda6de47155f4d9b085d6d1442e010fe"
+    },
+    {
+      "path": "asset/icons/gallery.png",
+      "sha1": "2b9352010a287069af1d7010e9241f04bf41921d"
+    },
+    {
+      "path": "asset/icons/gr_tick.png",
+      "sha1": "2160297b4ba2155e210fae48a5145080516ecaaa"
+    },
+    {
+      "path": "asset/icons/ic_tick.png",
+      "sha1": "3c3972b1263dd860c983c02764b2dd9de1cf846e"
+    },
+    {
+      "path": "asset/icons/index.ts",
+      "sha1": "8dd86001cc79afbf5b5458a01041f6f00a5951c5"
+    },
+    {
+      "path": "asset/icons/invert_triangle.png",
+      "sha1": "fe3c1788a2a50b7b8aa91f88e941ae59d921a226"
+    },
+    {
+      "path": "asset/icons/pickup_seal.png",
+      "sha1": "d26d54245db4b27b0b8073a96099a3ce38ef35ca"
+    },
+    {
+      "path": "asset/icons/pickup_stamp.png",
+      "sha1": "8e87d7b548c45c76d2c841f8cc9214633b2b87c3"
+    },
+    {
+      "path": "asset/icons/pin_store.png",
+      "sha1": "9af6d497272638c67d45aa22eccb79d67a395a14"
+    },
+    {
+      "path": "asset/icons/pin_target.png",
+      "sha1": "a3e9f760f1ca28581d13b043765debc76291baff"
+    },
+    {
+      "path": "asset/icons/pin_user.png",
+      "sha1": "3ef265f96c472fff945fa91f039bdccd6c80b2e7"
+    },
+    {
+      "path": "asset/icons/placed_seal.png",
+      "sha1": "0aef8c7357f1a0a7e52d7fe2bf79c4988f1b83a3"
+    },
+    {
+      "path": "asset/icons/rider.png",
+      "sha1": "3d577c006cfa60d0847dac25c907112511a12508"
+    },
+    {
+      "path": "asset/icons/rider_out.png",
+      "sha1": "78a3856bec9259368430879310af41483cae70a4"
+    },
+    {
+      "path": "asset/icons/right_arrow.png",
+      "sha1": "86deddf838c2ff91178f7b3eb302f9dadb461d96"
+    },
+    {
+      "path": "asset/icons/stock_in.png",
+      "sha1": "484042a8bfcc4b3154768293dc722981781701d1"
+    },
+    {
+      "path": "asset/icons/tick.png",
+      "sha1": "19bc1feec61c24c8f1cf05beda0e95f03c2e9a50"
+    },
+    {
+      "path": "asset/icons/topbar_icon.png",
+      "sha1": "e4f25602fdac97feda452d71100d9d6ca34e8e22"
+    },
+    {
+      "path": "asset/image/Login.jpeg",
+      "sha1": "adefa28b1071d1c001514a727f7d0a6d1a4dcb37"
+    },
+    {
+      "path": "asset/image/Splash.png",
+      "sha1": "2c09dbe9d15a48be2b0d0974ae82e692c96718ba"
+    },
+    {
+      "path": "asset/image/Text.png",
+      "sha1": "5e2920a5964120649426384a4f7a2d5343ba4f23"
+    },
+    {
+      "path": "asset/image/Toast.png",
+      "sha1": "d2f0f1ded58f59f1d5cbdfa2297a9ddd7d3f1ce7"
+    }
+  ]
+}

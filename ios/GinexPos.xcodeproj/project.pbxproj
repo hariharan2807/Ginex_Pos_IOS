@@ -7,24 +7,124 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00C603628A0241DB96C760D1 /* rider.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FF40AF68B94F92B9AF3F0D /* rider.png */; };
+		02A953FBA63F474896434875 /* onboard.png in Resources */ = {isa = PBXBuildFile; fileRef = C40C536A461D4F92B56406C2 /* onboard.png */; };
+		0415865D2CE342DE8B28D699 /* Mulish-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2A6D60465E14E85B6A4AE5D /* Mulish-SemiBold.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-GinexPos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-GinexPos.a */; };
+		13684EDFF07247818492DBCD /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504D896BC7F04E80B49AA9E0 /* Mulish-Regular.ttf */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		155124D09DC5472B9FE2F48D /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 91BEEEEBEAF74D3584875A39 /* gallery.png */; };
+		198AADAD348A45948A4E5C96 /* pin_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D449529F85453AB1109D76 /* pin_user.png */; };
+		1F2F9C60AB10456085FCD2A1 /* DashBoardFill.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 0BD554BC9DDB4A0D84A59562 /* DashBoardFill.tsx */; };
+		24B35BA1045B4662BD7C262A /* topbar_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C8CE0B9B7A42DC8585900B /* topbar_icon.png */; };
 		2B74FF3605DF85509C65653E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		301BA962B76D406DB065F8ED /* rider_out.png in Resources */ = {isa = PBXBuildFile; fileRef = 289E48417294443782F50B5A /* rider_out.png */; };
+		371E555D989242C0B76419E0 /* Mulish-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13F1AE2E385340D8818AB3C8 /* Mulish-Light.ttf */; };
+		3AA09B6A6E644F7FBCC9A30D /* CalendarIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 44BDC57763BB4154ACD3631C /* CalendarIcon.tsx */; };
+		3F97EF9D8F6744D491DA3E33 /* pickup_seal.png in Resources */ = {isa = PBXBuildFile; fileRef = E9997E7C077147E298BAFCBA /* pickup_seal.png */; };
+		4135D04BF4C2498F902F7E1F /* fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 42AA952C45EC4DF58A3CA104 /* fail.png */; };
+		4307A66DC74240159CF22BA2 /* Login.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F9096B51080A406F9F7BDBCC /* Login.jpeg */; };
+		467C015D8C08467681A6E4C5 /* Mulish-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EABCF3C2F3C4C55A6ED69ED /* Mulish-Bold.ttf */; };
+		4D4418E4295748C6A39E756C /* SearchFocusIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = B0E78891F646476BAC3E4395 /* SearchFocusIcon.tsx */; };
+		51F7D80A88E048FB8C2DF811 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 162D15300C744B2099E87554 /* right_arrow.png */; };
+		633628B7DDDA4359A3EB3320 /* Milliard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27875CF23F9D4D58910E96DC /* Milliard-SemiBold.otf */; };
+		64DAE97B74814AED93578198 /* HomeIconFocus.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 83E8C676C69041BEAADAB4EB /* HomeIconFocus.tsx */; };
+		66EB66D1478340138D43BB3B /* pin_target.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0156C4821C46EFB3E3CBE1 /* pin_target.png */; };
+		6997E3CB5F4E446BB53D3A24 /* Toast.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A54A897F9240A2952ED08A /* Toast.png */; };
+		6B03BD7294B94A75A85899BF /* CartIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 27FB1F3F16FC485F9C6586DB /* CartIcon.tsx */; };
+		71758C746A7B425094405C5E /* Milliard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F407C75A626941CF8CBEED61 /* Milliard-Medium.otf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
+		7E1AEFD9269E44F4AAC52CDF /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 40768AE33641471489615DFD /* Splash.png */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8642EA4E86234D1599056816 /* delivery_stamp.png in Resources */ = {isa = PBXBuildFile; fileRef = B9646DB453734384AB27577B /* delivery_stamp.png */; };
+		866E607C4477494B9C3FE9E0 /* temp_pro_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F007E91F98C418BBD282A2D /* temp_pro_pic.png */; };
+		875539659E2744F5A69DDDD7 /* gr_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = A0EDCC13502F4A36B97897B4 /* gr_tick.png */; };
+		8B6F08FAC33F419A863B5E35 /* Milliard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 251F9CB2F8734EFAA518B054 /* Milliard-Light.otf */; };
+		8BBD3EC3618E4820862EDA44 /* pickup_stamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 53662ECC5CA94F4190103762 /* pickup_stamp.png */; };
+		8CA653598CF94A72B708C1D0 /* HomeIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 46755C782C064311A33D622C /* HomeIcon.tsx */; };
+		917BE9F8B4BD4A378846C61C /* placed_seal.png in Resources */ = {isa = PBXBuildFile; fileRef = CC30F0F927BB4C28B418F151 /* placed_seal.png */; };
+		9C2711F9EB704DBFBBD376DD /* Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 50B9E285FAD14FF48302BFEA /* Text.png */; };
+		9E5432EE24F1406D9D91A1E0 /* ic_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE661D0C72B4231BB7DDFB6 /* ic_tick.png */; };
+		A285394B5BBC44209EC4EBCB /* stock_in.png in Resources */ = {isa = PBXBuildFile; fileRef = 76D57F3B4B504515B22FCF42 /* stock_in.png */; };
+		A476415BECC9470382AF2B4A /* pin_store.png in Resources */ = {isa = PBXBuildFile; fileRef = 937DD21E6BCE490D827BF43D /* pin_store.png */; };
+		A8BD9978957B465E9A460187 /* g_round.png in Resources */ = {isa = PBXBuildFile; fileRef = E903EB0EF0E04BEDAC3CC075 /* g_round.png */; };
+		A98C6FE7EF624D13AA7A7FB0 /* edit_profile_image.png in Resources */ = {isa = PBXBuildFile; fileRef = ADF3E84A26E2426C874D0415 /* edit_profile_image.png */; };
+		B742010B9B3A4194B1A92A2E /* DashBoard.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 9F3278ED7268483EB159C4B9 /* DashBoard.tsx */; };
+		BA4CC0A3C95845789C5A5D23 /* SearchIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 2A3235255747444BA57B4034 /* SearchIcon.tsx */; };
+		BE95B4B32D9A4FC3B7007BB4 /* AccountFocusIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 8419F109B1E440CC9E81DB71 /* AccountFocusIcon.tsx */; };
+		C745EB58EB1344B9B56E9DDD /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = 5879FD59F30342E3A78F78E7 /* index.ts */; };
+		CB33BF9410304780870F2572 /* CallIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = 422A812C6A32474EBA1ADEB1 /* CallIcon.tsx */; };
+		CD0835B7198042A5BE2D90F0 /* edit_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFDA7CB7A684E27A2BC190C /* edit_profile.png */; };
+		D58EFD26037D449085948812 /* delivery_seal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8677CAFC2DAB4AC9ADB2B3E5 /* delivery_seal.png */; };
+		E58ABB0E5CBE4BC5855ABFDB /* invert_triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = C9E17FA1D20E440594D1E1D4 /* invert_triangle.png */; };
+		ED3FD75AC78D4A0583332516 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 29451D190D2C444F82BC9CB0 /* tick.png */; };
+		F3A0AEED91A14CB199CD40F4 /* Milliard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D625F55C01D840F9989C7F80 /* Milliard-Bold.otf */; };
+		F5FD376A050E42D3BFE04E20 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C6307A6122B4F8B84015204 /* camera.png */; };
+		F6CD0D5C85454602AAAE1EC8 /* CartFocusIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = E558724045A846A39362E661 /* CartFocusIcon.tsx */; };
+		FB1B5D9C56DE4B2FB3E37810 /* AccountIcon.tsx in Resources */ = {isa = PBXBuildFile; fileRef = C744F91B50A44BC48CF0215F /* AccountIcon.tsx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02A54A897F9240A2952ED08A /* Toast.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Toast.png; path = ../asset/image/Toast.png; sourceTree = "<group>"; };
+		02D449529F85453AB1109D76 /* pin_user.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = pin_user.png; path = ../asset/icons/pin_user.png; sourceTree = "<group>"; };
+		0BD554BC9DDB4A0D84A59562 /* DashBoardFill.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = DashBoardFill.tsx; path = ../asset/icons/SvgIcon/DashBoardFill.tsx; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* GinexPos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GinexPos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GinexPos/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GinexPos/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = GinexPos/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13F1AE2E385340D8818AB3C8 /* Mulish-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Light.ttf"; path = "../asset/fonts/Mulish-Light.ttf"; sourceTree = "<group>"; };
+		162D15300C744B2099E87554 /* right_arrow.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = right_arrow.png; path = ../asset/icons/right_arrow.png; sourceTree = "<group>"; };
+		1F007E91F98C418BBD282A2D /* temp_pro_pic.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = temp_pro_pic.png; path = ../asset/Temp/temp_pro_pic.png; sourceTree = "<group>"; };
+		251F9CB2F8734EFAA518B054 /* Milliard-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Milliard-Light.otf"; path = "../asset/fonts/Milliard-Light.otf"; sourceTree = "<group>"; };
+		27875CF23F9D4D58910E96DC /* Milliard-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Milliard-SemiBold.otf"; path = "../asset/fonts/Milliard-SemiBold.otf"; sourceTree = "<group>"; };
+		27FB1F3F16FC485F9C6586DB /* CartIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = CartIcon.tsx; path = ../asset/icons/SvgIcon/CartIcon.tsx; sourceTree = "<group>"; };
+		289E48417294443782F50B5A /* rider_out.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = rider_out.png; path = ../asset/icons/rider_out.png; sourceTree = "<group>"; };
+		29451D190D2C444F82BC9CB0 /* tick.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = tick.png; path = ../asset/icons/tick.png; sourceTree = "<group>"; };
+		2A3235255747444BA57B4034 /* SearchIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SearchIcon.tsx; path = ../asset/icons/SvgIcon/SearchIcon.tsx; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-GinexPos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GinexPos.debug.xcconfig"; path = "Target Support Files/Pods-GinexPos/Pods-GinexPos.debug.xcconfig"; sourceTree = "<group>"; };
+		40768AE33641471489615DFD /* Splash.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Splash.png; path = ../asset/image/Splash.png; sourceTree = "<group>"; };
+		41FF40AF68B94F92B9AF3F0D /* rider.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = rider.png; path = ../asset/icons/rider.png; sourceTree = "<group>"; };
+		422A812C6A32474EBA1ADEB1 /* CallIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = CallIcon.tsx; path = ../asset/icons/SvgIcon/CallIcon.tsx; sourceTree = "<group>"; };
+		42AA952C45EC4DF58A3CA104 /* fail.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = fail.png; path = ../asset/icons/fail.png; sourceTree = "<group>"; };
+		44BDC57763BB4154ACD3631C /* CalendarIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = CalendarIcon.tsx; path = ../asset/icons/SvgIcon/CalendarIcon.tsx; sourceTree = "<group>"; };
+		46755C782C064311A33D622C /* HomeIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = HomeIcon.tsx; path = ../asset/icons/SvgIcon/HomeIcon.tsx; sourceTree = "<group>"; };
+		4DFDA7CB7A684E27A2BC190C /* edit_profile.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = edit_profile.png; path = ../asset/icons/edit_profile.png; sourceTree = "<group>"; };
+		504D896BC7F04E80B49AA9E0 /* Mulish-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Regular.ttf"; path = "../asset/fonts/Mulish-Regular.ttf"; sourceTree = "<group>"; };
+		50B9E285FAD14FF48302BFEA /* Text.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Text.png; path = ../asset/image/Text.png; sourceTree = "<group>"; };
+		53662ECC5CA94F4190103762 /* pickup_stamp.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = pickup_stamp.png; path = ../asset/icons/pickup_stamp.png; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-GinexPos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GinexPos.release.xcconfig"; path = "Target Support Files/Pods-GinexPos/Pods-GinexPos.release.xcconfig"; sourceTree = "<group>"; };
+		5879FD59F30342E3A78F78E7 /* index.ts */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = index.ts; path = ../asset/icons/index.ts; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-GinexPos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GinexPos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C6307A6122B4F8B84015204 /* camera.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = camera.png; path = ../asset/icons/camera.png; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GinexPos/AppDelegate.swift; sourceTree = "<group>"; };
+		76D57F3B4B504515B22FCF42 /* stock_in.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = stock_in.png; path = ../asset/icons/stock_in.png; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GinexPos/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		83E8C676C69041BEAADAB4EB /* HomeIconFocus.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = HomeIconFocus.tsx; path = ../asset/icons/SvgIcon/HomeIconFocus.tsx; sourceTree = "<group>"; };
+		8419F109B1E440CC9E81DB71 /* AccountFocusIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AccountFocusIcon.tsx; path = ../asset/icons/SvgIcon/AccountFocusIcon.tsx; sourceTree = "<group>"; };
+		8677CAFC2DAB4AC9ADB2B3E5 /* delivery_seal.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = delivery_seal.png; path = ../asset/icons/delivery_seal.png; sourceTree = "<group>"; };
+		88C8CE0B9B7A42DC8585900B /* topbar_icon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = topbar_icon.png; path = ../asset/icons/topbar_icon.png; sourceTree = "<group>"; };
+		8EABCF3C2F3C4C55A6ED69ED /* Mulish-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Bold.ttf"; path = "../asset/fonts/Mulish-Bold.ttf"; sourceTree = "<group>"; };
+		91BEEEEBEAF74D3584875A39 /* gallery.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = gallery.png; path = ../asset/icons/gallery.png; sourceTree = "<group>"; };
+		937DD21E6BCE490D827BF43D /* pin_store.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = pin_store.png; path = ../asset/icons/pin_store.png; sourceTree = "<group>"; };
+		9F3278ED7268483EB159C4B9 /* DashBoard.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = DashBoard.tsx; path = ../asset/icons/SvgIcon/DashBoard.tsx; sourceTree = "<group>"; };
+		A0EDCC13502F4A36B97897B4 /* gr_tick.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = gr_tick.png; path = ../asset/icons/gr_tick.png; sourceTree = "<group>"; };
+		AA0156C4821C46EFB3E3CBE1 /* pin_target.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = pin_target.png; path = ../asset/icons/pin_target.png; sourceTree = "<group>"; };
+		ADF3E84A26E2426C874D0415 /* edit_profile_image.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = edit_profile_image.png; path = ../asset/icons/edit_profile_image.png; sourceTree = "<group>"; };
+		B0E78891F646476BAC3E4395 /* SearchFocusIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SearchFocusIcon.tsx; path = ../asset/icons/SvgIcon/SearchFocusIcon.tsx; sourceTree = "<group>"; };
+		B2A6D60465E14E85B6A4AE5D /* Mulish-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-SemiBold.ttf"; path = "../asset/fonts/Mulish-SemiBold.ttf"; sourceTree = "<group>"; };
+		B9646DB453734384AB27577B /* delivery_stamp.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = delivery_stamp.png; path = ../asset/icons/delivery_stamp.png; sourceTree = "<group>"; };
+		BCE661D0C72B4231BB7DDFB6 /* ic_tick.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ic_tick.png; path = ../asset/icons/ic_tick.png; sourceTree = "<group>"; };
+		C40C536A461D4F92B56406C2 /* onboard.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = onboard.png; path = ../asset/Temp/onboard.png; sourceTree = "<group>"; };
+		C744F91B50A44BC48CF0215F /* AccountIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AccountIcon.tsx; path = ../asset/icons/SvgIcon/AccountIcon.tsx; sourceTree = "<group>"; };
+		C9E17FA1D20E440594D1E1D4 /* invert_triangle.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = invert_triangle.png; path = ../asset/icons/invert_triangle.png; sourceTree = "<group>"; };
+		CC30F0F927BB4C28B418F151 /* placed_seal.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = placed_seal.png; path = ../asset/icons/placed_seal.png; sourceTree = "<group>"; };
+		D625F55C01D840F9989C7F80 /* Milliard-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Milliard-Bold.otf"; path = "../asset/fonts/Milliard-Bold.otf"; sourceTree = "<group>"; };
+		E558724045A846A39362E661 /* CartFocusIcon.tsx */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = CartFocusIcon.tsx; path = ../asset/icons/SvgIcon/CartFocusIcon.tsx; sourceTree = "<group>"; };
+		E903EB0EF0E04BEDAC3CC075 /* g_round.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = g_round.png; path = ../asset/icons/g_round.png; sourceTree = "<group>"; };
+		E9997E7C077147E298BAFCBA /* pickup_seal.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = pickup_seal.png; path = ../asset/icons/pickup_seal.png; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F407C75A626941CF8CBEED61 /* Milliard-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Milliard-Medium.otf"; path = "../asset/fonts/Milliard-Medium.otf"; sourceTree = "<group>"; };
+		F9096B51080A406F9F7BDBCC /* Login.jpeg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Login.jpeg; path = ../asset/image/Login.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +175,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				F12BC74CAD7845B39CAF3B63 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -96,6 +197,64 @@
 				5709B34CF0A7D63546082F79 /* Pods-GinexPos.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F12BC74CAD7845B39CAF3B63 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D625F55C01D840F9989C7F80 /* Milliard-Bold.otf */,
+				251F9CB2F8734EFAA518B054 /* Milliard-Light.otf */,
+				F407C75A626941CF8CBEED61 /* Milliard-Medium.otf */,
+				27875CF23F9D4D58910E96DC /* Milliard-SemiBold.otf */,
+				8EABCF3C2F3C4C55A6ED69ED /* Mulish-Bold.ttf */,
+				13F1AE2E385340D8818AB3C8 /* Mulish-Light.ttf */,
+				504D896BC7F04E80B49AA9E0 /* Mulish-Regular.ttf */,
+				B2A6D60465E14E85B6A4AE5D /* Mulish-SemiBold.ttf */,
+				C40C536A461D4F92B56406C2 /* onboard.png */,
+				1F007E91F98C418BBD282A2D /* temp_pro_pic.png */,
+				8419F109B1E440CC9E81DB71 /* AccountFocusIcon.tsx */,
+				C744F91B50A44BC48CF0215F /* AccountIcon.tsx */,
+				44BDC57763BB4154ACD3631C /* CalendarIcon.tsx */,
+				422A812C6A32474EBA1ADEB1 /* CallIcon.tsx */,
+				E558724045A846A39362E661 /* CartFocusIcon.tsx */,
+				27FB1F3F16FC485F9C6586DB /* CartIcon.tsx */,
+				9F3278ED7268483EB159C4B9 /* DashBoard.tsx */,
+				0BD554BC9DDB4A0D84A59562 /* DashBoardFill.tsx */,
+				46755C782C064311A33D622C /* HomeIcon.tsx */,
+				83E8C676C69041BEAADAB4EB /* HomeIconFocus.tsx */,
+				B0E78891F646476BAC3E4395 /* SearchFocusIcon.tsx */,
+				2A3235255747444BA57B4034 /* SearchIcon.tsx */,
+				6C6307A6122B4F8B84015204 /* camera.png */,
+				8677CAFC2DAB4AC9ADB2B3E5 /* delivery_seal.png */,
+				B9646DB453734384AB27577B /* delivery_stamp.png */,
+				4DFDA7CB7A684E27A2BC190C /* edit_profile.png */,
+				ADF3E84A26E2426C874D0415 /* edit_profile_image.png */,
+				42AA952C45EC4DF58A3CA104 /* fail.png */,
+				E903EB0EF0E04BEDAC3CC075 /* g_round.png */,
+				91BEEEEBEAF74D3584875A39 /* gallery.png */,
+				A0EDCC13502F4A36B97897B4 /* gr_tick.png */,
+				BCE661D0C72B4231BB7DDFB6 /* ic_tick.png */,
+				5879FD59F30342E3A78F78E7 /* index.ts */,
+				C9E17FA1D20E440594D1E1D4 /* invert_triangle.png */,
+				E9997E7C077147E298BAFCBA /* pickup_seal.png */,
+				53662ECC5CA94F4190103762 /* pickup_stamp.png */,
+				937DD21E6BCE490D827BF43D /* pin_store.png */,
+				AA0156C4821C46EFB3E3CBE1 /* pin_target.png */,
+				02D449529F85453AB1109D76 /* pin_user.png */,
+				CC30F0F927BB4C28B418F151 /* placed_seal.png */,
+				41FF40AF68B94F92B9AF3F0D /* rider.png */,
+				289E48417294443782F50B5A /* rider_out.png */,
+				162D15300C744B2099E87554 /* right_arrow.png */,
+				76D57F3B4B504515B22FCF42 /* stock_in.png */,
+				29451D190D2C444F82BC9CB0 /* tick.png */,
+				88C8CE0B9B7A42DC8585900B /* topbar_icon.png */,
+				F9096B51080A406F9F7BDBCC /* Login.jpeg */,
+				40768AE33641471489615DFD /* Splash.png */,
+				50B9E285FAD14FF48302BFEA /* Text.png */,
+				02A54A897F9240A2952ED08A /* Toast.png */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +320,56 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2B74FF3605DF85509C65653E /* PrivacyInfo.xcprivacy in Resources */,
+				F3A0AEED91A14CB199CD40F4 /* Milliard-Bold.otf in Resources */,
+				8B6F08FAC33F419A863B5E35 /* Milliard-Light.otf in Resources */,
+				71758C746A7B425094405C5E /* Milliard-Medium.otf in Resources */,
+				633628B7DDDA4359A3EB3320 /* Milliard-SemiBold.otf in Resources */,
+				467C015D8C08467681A6E4C5 /* Mulish-Bold.ttf in Resources */,
+				371E555D989242C0B76419E0 /* Mulish-Light.ttf in Resources */,
+				13684EDFF07247818492DBCD /* Mulish-Regular.ttf in Resources */,
+				0415865D2CE342DE8B28D699 /* Mulish-SemiBold.ttf in Resources */,
+				02A953FBA63F474896434875 /* onboard.png in Resources */,
+				866E607C4477494B9C3FE9E0 /* temp_pro_pic.png in Resources */,
+				BE95B4B32D9A4FC3B7007BB4 /* AccountFocusIcon.tsx in Resources */,
+				FB1B5D9C56DE4B2FB3E37810 /* AccountIcon.tsx in Resources */,
+				3AA09B6A6E644F7FBCC9A30D /* CalendarIcon.tsx in Resources */,
+				CB33BF9410304780870F2572 /* CallIcon.tsx in Resources */,
+				F6CD0D5C85454602AAAE1EC8 /* CartFocusIcon.tsx in Resources */,
+				6B03BD7294B94A75A85899BF /* CartIcon.tsx in Resources */,
+				B742010B9B3A4194B1A92A2E /* DashBoard.tsx in Resources */,
+				1F2F9C60AB10456085FCD2A1 /* DashBoardFill.tsx in Resources */,
+				8CA653598CF94A72B708C1D0 /* HomeIcon.tsx in Resources */,
+				64DAE97B74814AED93578198 /* HomeIconFocus.tsx in Resources */,
+				4D4418E4295748C6A39E756C /* SearchFocusIcon.tsx in Resources */,
+				BA4CC0A3C95845789C5A5D23 /* SearchIcon.tsx in Resources */,
+				F5FD376A050E42D3BFE04E20 /* camera.png in Resources */,
+				D58EFD26037D449085948812 /* delivery_seal.png in Resources */,
+				8642EA4E86234D1599056816 /* delivery_stamp.png in Resources */,
+				CD0835B7198042A5BE2D90F0 /* edit_profile.png in Resources */,
+				A98C6FE7EF624D13AA7A7FB0 /* edit_profile_image.png in Resources */,
+				4135D04BF4C2498F902F7E1F /* fail.png in Resources */,
+				A8BD9978957B465E9A460187 /* g_round.png in Resources */,
+				155124D09DC5472B9FE2F48D /* gallery.png in Resources */,
+				875539659E2744F5A69DDDD7 /* gr_tick.png in Resources */,
+				9E5432EE24F1406D9D91A1E0 /* ic_tick.png in Resources */,
+				C745EB58EB1344B9B56E9DDD /* index.ts in Resources */,
+				E58ABB0E5CBE4BC5855ABFDB /* invert_triangle.png in Resources */,
+				3F97EF9D8F6744D491DA3E33 /* pickup_seal.png in Resources */,
+				8BBD3EC3618E4820862EDA44 /* pickup_stamp.png in Resources */,
+				A476415BECC9470382AF2B4A /* pin_store.png in Resources */,
+				66EB66D1478340138D43BB3B /* pin_target.png in Resources */,
+				198AADAD348A45948A4E5C96 /* pin_user.png in Resources */,
+				917BE9F8B4BD4A378846C61C /* placed_seal.png in Resources */,
+				00C603628A0241DB96C760D1 /* rider.png in Resources */,
+				301BA962B76D406DB065F8ED /* rider_out.png in Resources */,
+				51F7D80A88E048FB8C2DF811 /* right_arrow.png in Resources */,
+				A285394B5BBC44209EC4EBCB /* stock_in.png in Resources */,
+				ED3FD75AC78D4A0583332516 /* tick.png in Resources */,
+				24B35BA1045B4662BD7C262A /* topbar_icon.png in Resources */,
+				4307A66DC74240159CF22BA2 /* Login.jpeg in Resources */,
+				7E1AEFD9269E44F4AAC52CDF /* Splash.png in Resources */,
+				9C2711F9EB704DBFBBD376DD /* Text.png in Resources */,
+				6997E3CB5F4E446BB53D3A24 /* Toast.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +549,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -368,6 +577,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -420,7 +630,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -440,6 +650,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",

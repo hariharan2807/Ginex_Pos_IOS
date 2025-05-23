@@ -1,28 +1,17 @@
 {
   "font-regular": {
-    "fontFamily": "Milliard-Light"
+    "fontFamily": "Mulish-Light"
   },
-  "font-semibold": {
-    "fontFamily": "Milliard-SemiBold"
+  "font-semi": {
+    "fontFamily": "Mulish-SemiBold"
   },
   "font-medium": {
-    "fontFamily": "Milliard-Medium"
+    "fontFamily": "Mulish-Regular"
   },
   "font-bold": {
-    "fontFamily": "Milliard-Bold"
+    "fontFamily": "Mulish-Bold"
   },
-  "Nunito-Light": {
-    "fontFamily": "Nunito-Light"
-  },
-  "Nunito-SemiBold": {
-    "fontFamily": "Nunito-SemiBold"
-  },
-  "Nunito-Medium": {
-    "fontFamily": "Nunito-Medium"
-  },
-  "Nunito-Bold": {
-    "fontFamily": "Nunito-Bold"
-  },
+
   "border-orange": {
     "--tw-border-opacity": 1,
     "borderTopColor": "#ED7B23",
@@ -32,17 +21,17 @@
   },
   "border-primary": {
     "--tw-border-opacity": 1,
-    "borderTopColor": "#49A600",
-    "borderRightColor": "#49A600",
-    "borderBottomColor": "#49A600",
-    "borderLeftColor": "#49A600"
+    "borderTopColor": "#001a4f",
+    "borderRightColor": "#001a4f",
+    "borderBottomColor": "#001a4f",
+    "borderLeftColor": "#001a4f"
   },
   "border-yellow": {
     "--tw-border-opacity": 1,
-    "borderTopColor": "#F6A11F",
-    "borderRightColor": "#F6A11F",
-    "borderBottomColor": "#F6A11F",
-    "borderLeftColor": "#F6A11F"
+    "borderTopColor": "#3B6EB5",
+    "borderRightColor": "#3B6EB5",
+    "borderBottomColor": "#3B6EB5",
+    "borderLeftColor": "#3B6EB5"
   },
 
   "bg-light": {
@@ -52,10 +41,10 @@
     "backgroundColor": "#E9E9E9"
   },
   "bg-primary": {
-    "backgroundColor": "#49A600"
+    "backgroundColor": "#001a4f"
   },
   "bg-secondary": {
-    "backgroundColor": "#F6A11F"
+    "backgroundColor": "#3B6EB5"
   },
   "bg-gray": {
     "backgroundColor": "#F2F2F2"
@@ -64,7 +53,7 @@
     "backgroundColor": "#EAEDFB"
   },
   "text-primary": {
-    "color": "#49A600"
+    "color": "#001a4f"
   },
   "text-secondary": {
     "color": "#67748E"
@@ -183,6 +172,9 @@
   },
   "font-19": {
     "fontSize": 19
+  },
+  "font-28": {
+    "fontSize": 28
   },
   "font-24": {
     "fontSize": 24

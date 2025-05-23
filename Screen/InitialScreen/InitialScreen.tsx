@@ -1,28 +1,50 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import {View, Text, Image} from 'react-native';
+import React, {useEffect} from 'react';
 import tailwind from '@tailwind';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
+import assets_manifest from '../../constants/assets_manifest';
+import {getTokenuser} from '../../workers/localStorage';
+import {useNavigation} from '@react-navigation/native';
 export default function InitialScreen() {
+  const navigation = useNavigation();
+
   console.log('working');
-  const AdminState = useSelector(state => state.app.ip);
+  // const AdminState = useSelector(state => state.app.ip);
+  useEffect(() => {
+    Intial();
+  }, []);
+  const Intial = async () => {
+    const token = await getTokenuser();
+    console.log('hhghuhjhhfdsgrxgchgcfrxsrx',token);
+    
+    setTimeout(() => {
+      if (token == null) {
+        navigation.reset({
+          routes: [
+            {
+              name: 'LoginTypeScreen',
+            },
+          ],
+        });
+      } else {
+        // dispatch(SaveDate(SaveDateValue));
+        navigation.reset({
+          routes: [
+            {
+              name: 'BottomTabNavigation',
+            },
+          ],
+        });
+        // setLoading(false);
+      }
+    }, 2000);
+  };
   return (
-    <View
-      style={[
-        tailwind('bg-secondary items-center'),
-        {justifyContent: 'center'},
-      ]}>
-      <Text style={[tailwind('font-20 text-primary')]}>hari haran</Text>
-      <Text style={[tailwind('font-20')]}>hari haran</Text>
-      <Text style={[tailwind('font-20')]}>hari haran</Text>
-      <Text style={[tailwind('font-20')]}>hari haran</Text>
-      <Text style={[tailwind('font-20')]}>hari haran</Text>
-      <Text style={[tailwind('font-20')]}>hari haran</Text>
-      <Text style={[tailwind('font-20')]}>hari haran</Text>
-      <Text style={[tailwind('font-20 text-primary')]}>{AdminState}</Text>
-      <Text>hari haran</Text>
-      <Text>hari haran</Text>
-      <Text>hari haran</Text>
-      <Text>hari haran</Text>
+    <View style={[tailwind('h-full'), {}]}>
+      <Image
+        source={assets_manifest?.Splash}
+        style={[tailwind(''), {height: '100%', width: '100%'}]}
+      />
     </View>
   );
 }

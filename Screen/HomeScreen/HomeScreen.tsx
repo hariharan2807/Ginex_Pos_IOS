@@ -7,6 +7,6 @@ export default function HomeScreen() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(saveIpAction('hari haran Boobathi Haasini'));
-  });
+  },[]);
   return <View style={[tailwind('h-full bg-primary')]}></View>;
 }

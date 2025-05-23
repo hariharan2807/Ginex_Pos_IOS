@@ -3,7 +3,7 @@
 		"scope": "typescriptreact",
 		"prefix": "makestyle",
 		"body": [
-			" style={[tailwind('$1')$2]}"
+			" style={[tailwind('$1'),{$2}]}"
 		],
 		"description": "tailwind Style Basic Block"
 	},
@@ -11,7 +11,7 @@
 		"scope": "typescriptreact",
 		"prefix": "stView",
 		"body": [
-			"<View style={[tailwind('$1')$2]}>",
+			"<View style={[tailwind('$1'),{$2}]}>",
 			"   ",
 			"</View>"
 		],

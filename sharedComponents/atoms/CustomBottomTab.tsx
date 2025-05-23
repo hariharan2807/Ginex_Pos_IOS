@@ -1,11 +1,5 @@
-
-import React, { useEffect, useState } from 'react';
-import {
-  Keyboard,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Keyboard, Text, TouchableOpacity, View} from 'react-native';
 import {
   AccountFocusIcon,
   AccountIcon,
@@ -14,7 +8,7 @@ import {
   DashBoard,
   DashBoardFill,
   SearchFocusIcon,
-  SearchIcon
+  SearchIcon,
 } from '../../asset/icons';
 import tailwind from '../../tailwind';
 
@@ -94,13 +88,12 @@ export default function CustomBottomTab({state, descriptors, navigation}: any) {
               {index === 0 ? (
                 isFocused ? (
                   <View>
-                    
-                    <DashBoardFill/>
+                    <DashBoardFill />
                     {/* <HomeIconFocus /> */}
                   </View>
                 ) : (
                   <View>
-                     <DashBoard/>
+                    <DashBoard />
                     {/* <HomeIcon /> */}
                   </View>
                 )

@@ -6,8 +6,11 @@
  */
 
 import React from 'react';
+import type {Node} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  LogBox,
+  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -27,16 +30,48 @@ import InitialScreen from './Screen/InitialScreen';
 import RootNavigation from './navigation/RootNavigation';
 import {Provider} from 'react-redux';
 import store from './store';
+import {QueryClient, QueryClientProvider} from 'react-query';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import tailwind from '@tailwind';
+import Toast from 'react-native-toast-message';
+import {toastConfig} from './constants/toastConfig';
+import { Buffer } from 'buffer';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
 
-function App(): React.JSX.Element {
+const queryClient = new QueryClient();
+
+LogBox.ignoreLogs(['Setting a timer']);
+
+// Remove this entirely:
+
+
+// Or make it actually work as intended:
+if (!__DEV__) {
+  // Production: Silence logs
+  console.log = () => {};
+} else {
+  // Development: Enhanced logging
+  const originalLog = console.log;  // ✅ Capture ORIGINAL early
+  console.log = (...args) => {
+    originalLog('[Log]', ...args);  // Safe: Calls the REAL console.log
+  };
+}
+
+global.Buffer = Buffer;
+
+const App: () => Node = () => {
+ 
   return (
-    <Provider store={store}>
-      <RootNavigation />
-    </Provider>
+    <GestureHandlerRootView style={[tailwind('flex-1')]}>
+      <SafeAreaView style={{flex: 1,backgroundColor:"#001a4f"}}>
+        <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+            <RootNavigation />
+          </QueryClientProvider>
+        </Provider>
+        <Toast config={toastConfig} />
+      </SafeAreaView>
+    </GestureHandlerRootView>
   );
 }
 
