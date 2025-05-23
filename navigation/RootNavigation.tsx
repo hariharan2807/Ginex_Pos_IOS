@@ -7,6 +7,9 @@ import BottomTabNavigation from './BottomTabNavigation';
 import LoginScreen from '../Screen/LoginScreen';
 import LoginTypeScreen from '../Screen/LoginTypeScreen';
 import RegisterScreen from '../Screen/RegisterScreen';
+import ProfileScreen from '../Screen/ProfileScreen';
+import EditProfileScreen from '../Screen/EditProfileScreen';
+import PlansPricingScreen from '../Screen/PlansPricingScreen';
 // import BottomTabNavigation from './BottomTabNavigation';
 
 // import TomorrowOrderScreen from '../Screen/TomorrowOrderScreen';
@@ -27,19 +30,24 @@ export default function RootNavigation() {
           name="BottomTabNavigation"
           component={BottomTabNavigation}
         />
-           <RootNavigator.Screen
+        <RootNavigator.Screen
           name="LoginTypeScreen"
           component={LoginTypeScreen}
         />
-          <RootNavigator.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-        />
-            <RootNavigator.Screen
+        <RootNavigator.Screen name="LoginScreen" component={LoginScreen} />
+        <RootNavigator.Screen
           name="RegisterScreen"
           component={RegisterScreen}
         />
-        
+        <RootNavigator.Screen name="ProfileScreen" component={ProfileScreen} />
+        <RootNavigator.Screen
+          name="EditProfileScreen"
+          component={EditProfileScreen}
+        />
+        <RootNavigator.Screen
+          name="PlansPricingScreen"
+          component={PlansPricingScreen}
+        />
       </RootNavigator.Navigator>
       {/* </Host> */}
     </NavigationContainer>

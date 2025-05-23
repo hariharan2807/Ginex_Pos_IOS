@@ -15,8 +15,8 @@ export default function BottomTabNavigation(props: any) {
     <BottomTab.Navigator
       screenOptions={config}
       tabBar={props => <CustomBottomTab {...props} />}>
-      <BottomTab.Screen name="Today" component={Dashboard} />
-      <BottomTab.Screen name="Tomorrow" component={Order} />
+      <BottomTab.Screen name="Dashboard" component={Dashboard} />
+      <BottomTab.Screen name="Order" component={Order} />
       <BottomTab.Screen name="Account" component={Account} />
     </BottomTab.Navigator>
   );

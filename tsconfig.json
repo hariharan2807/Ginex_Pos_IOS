@@ -57,6 +57,7 @@
       "@remote/appRemote": ["./remote/appRemote"],
       "@remote/userRemote":["./remote/userRemote"],
       "@constants/toastConfig":["./constants/toastConfig"],
+      "@TopBar": ["./sharedComponents/index"],
 
     },
     // "rootDirs": [],                              /* List of root folders whose combined content represents the structure of the project at runtime. */

@@ -253,3 +253,30 @@ export const removeNotification = async () => {
 };
 
 //JWT Token
+export const SaveLoginData = async (payload: any) => {
+  console.log("saveToken ", payload);
+  try {
+    // Convert the payload object to a string before storing
+    await AsyncStorage.setItem('logindata', JSON.stringify(payload));
+  } catch (e) {
+    console.error("Saving token failed", e);
+  }
+};
+export const GetLoginData = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('logindata');
+    return jsonValue != null ? JSON.parse(jsonValue) : null;
+  } catch (e) {
+    console.error("Retrieving token failed", e);
+    return null;
+  }
+};
+
+export const RemoveLoginData = async () => {
+  try {
+    await AsyncStorage.removeItem('logindata');
+    console.log('Token removed');
+  } catch (e) {
+    console.error('Removing token failed', e);
+  }
+};

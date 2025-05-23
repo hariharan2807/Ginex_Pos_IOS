@@ -18,7 +18,7 @@ import assets_manifest from '../../constants/assets_manifest';
 import {errorBox, infoBox} from '../../workers/utils';
 import {getLoginremote} from '@remote/userRemote';
 import {Pinklog} from '@constants/API_constants';
-import {SaveToken} from '../../workers/localStorage';
+import {SaveLoginData, SaveToken} from '../../workers/localStorage';
 import {useDispatch} from 'react-redux';
 import {saveJWTTokenAction} from '../../store/actions/userActions';
 
@@ -47,10 +47,19 @@ export default function LoginScreen() {
     setLoading(false);
     console.log('ResponseResponseResponse', Response);
     if (Response?.status) {
-      setData(Response);
-      await SaveToken(Response?.token);
-      dispatch(saveJWTTokenAction(Response?.token));
-    } else if (Response?.statusCode == 404) {
+      try {
+        dispatch(saveJWTTokenAction(Response?.token));
+        await SaveLoginData(Response);
+        await SaveToken(Response?.token);
+
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'BottomTabNavigation'}],
+        });
+      } catch (e) {
+        console.error('Failed during login setup', e);
+      }
+    } else if (Response?.statusCode == 404 || Response?.statusCode == 400) {
       errorBox(Response?.res?.message);
 
       console.log('Data', Response);
@@ -60,9 +69,12 @@ export default function LoginScreen() {
       setOpen(true);
     }
   };
-  const Onpress = () => {
+  const Onpress = (data: any) => {
     setOpen(false);
-    LoginData(1);
+    setTimeout(() => {
+      setData(null);
+      LoginData(data);
+    }, 300);
   };
   console.log('data------>', data);
   return (
@@ -224,10 +236,13 @@ export default function LoginScreen() {
       </View>
       <Modal
         backdropOpacity={0.15}
+        onBackdropPress={() => setOpen(false)}
+
         style={[
           tailwind(' h-full items-center justify-center '),
           {backgroundColor: 'transparent'},
         ]}
+        
         isVisible={open}>
         <View
           style={[
@@ -255,9 +270,7 @@ export default function LoginScreen() {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => {
-                Onpress();
-              }}
+              onPress={() => Onpress(1)}
               style={[
                 tailwind('px-2 py-2 rounded-full border bg-primary'),
                 {width: '48%', marginLeft: 'auto'},

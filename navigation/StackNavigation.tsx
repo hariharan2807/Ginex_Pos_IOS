@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import InitialScreen from '../Screen/InitialScreen';
 import HomeScreen from '../Screen/HomeScreen';
+import ProfileScreen from '../Screen/ProfileScreen';
 
 const HomeStack = createNativeStackNavigator();
 const OrderStack = createNativeStackNavigator();
@@ -30,11 +31,11 @@ export function Order(props: any) {
 export function Account(props: any) {
   return (
     <AccountStack.Navigator screenOptions={StackConfig}>
-      <AccountStack.Screen name="AccountScreen" component={InitialScreen} />
-      <AccountStack.Screen
+      <AccountStack.Screen name="ProfileScreen" component={ProfileScreen} />
+      {/* <AccountStack.Screen
         name="TomorrowOrderScreen"
         component={InitialScreen}
-      />
+      /> */}
     </AccountStack.Navigator>
   );
 }
