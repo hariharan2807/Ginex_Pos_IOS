@@ -283,3 +283,49 @@ export const isValidImageURL = (url: any) => {
     return 'https://i.pinimg.com/originals/1e/34/5b/1e345bc4e0692b0ba3bad2e73a0a815c.jpg';
   }
 };
+export const getStoragePermission = async () => {
+  try {
+    if (Platform.OS === 'android') {
+      const requestResponse = await request(
+        PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE,
+      ).then(result => {
+        return result;
+      });
+      console.log('result', requestResponse);
+      if (requestResponse) {
+        if (requestResponse == 'limited' || requestResponse == 'granted' ) {
+          return {
+            status: true,
+          };
+        } else {
+          return {
+            status: false,
+          };
+        }
+      }
+    } else {
+      const requestResponse = await request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE).then(
+        result => {
+          return result;
+        },
+      );
+      console.log('result ', requestResponse);
+      if (requestResponse) {
+        if (requestResponse == 'limited' || requestResponse == 'granted' || requestResponse == 'unavailable') {
+          return {
+            status: true,
+          };
+        } else {
+          return {
+            status: false,
+          };
+        }
+      }
+    }
+  } catch (err) {
+    console.log('err', err);
+    return {
+      status: false,
+    };
+  }
+};

@@ -78,8 +78,8 @@ export default function LoginScreen() {
   };
   console.log('data------>', data);
   return (
-    <View style={[tailwind('h-full bg-primary')]}>
-      <View style={[tailwind('items-center mt-3'), {height: height / 2.2}]}>
+    <View style={[tailwind('bg-primary'),{height:"100%"}]}>
+      <View style={[tailwind('items-center mt-3'), {height: "50%"}]}>
         <View style={[tailwind('flex-row items-center px-3'), {}]}>
           <TouchableOpacity
             onPress={() => {
@@ -121,7 +121,7 @@ export default function LoginScreen() {
         style={[
           tailwind('bg-white p-5'),
           {
-            height: height,
+            height: "50%",
             borderTopRightRadius: 15,
             borderTopLeftRadius: 15,
           },

@@ -11,5 +11,12 @@ export default {
   plan:require('../asset/image/plan.png'),
   lock:require('../asset/image/lock.png'),
   close:require('../asset/image/close.png'),
+  report:require('../asset/image/report.png'),
+  headset:require('../asset/image/headset.png'),
+  whatsapp:require('../asset/image/whatsapp.png'),
+  mail:require('../asset/image/mail.png'),
+  call:require('../asset/image/call.png'),
+
+
   
 };

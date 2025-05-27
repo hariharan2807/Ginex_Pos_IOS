@@ -6,10 +6,16 @@ import DashBoard from "./SvgIcon/DashBoard";
 import DashBoardFill from "./SvgIcon/DashBoardFill";
 import HomeIcon from "./SvgIcon/HomeIcon";
 import HomeIconFocus from "./SvgIcon/HomeIconFocus";
+import LogoutIcon from "./SvgIcon/LogoutIcon";
+import ReportIcon from "./SvgIcon/ReportIcon";
+import ReportIconFill from "./SvgIcon/ReportIconFill";
 import SearchFocusIcon from "./SvgIcon/SearchFocusIcon";
 import SearchIcon from "./SvgIcon/SearchIcon";
+import SettingFillIcon from "./SvgIcon/SettingFillIcon";
+import SettingIcon from "./SvgIcon/SettingIcon";
 export {
     AccountFocusIcon, AccountIcon, CartFocusIcon, CartIcon, DashBoard, DashBoardFill, HomeIcon, HomeIconFocus,
-    SearchFocusIcon, SearchIcon
+    SearchFocusIcon, SearchIcon,LogoutIcon,ReportIconFill,ReportIcon
+    ,SettingFillIcon,SettingIcon
 };
 

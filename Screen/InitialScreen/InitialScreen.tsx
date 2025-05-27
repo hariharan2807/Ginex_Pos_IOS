@@ -3,8 +3,10 @@ import React, {useEffect} from 'react';
 import tailwind from '@tailwind';
 import {useSelector} from 'react-redux';
 import assets_manifest from '../../constants/assets_manifest';
-import {getTokenuser} from '../../workers/localStorage';
+import {GetLoginData, getTokenuser} from '../../workers/localStorage';
 import {useNavigation} from '@react-navigation/native';
+import {SaveUserInfo} from '@store/actions';
+import {getMyProfileremote} from '@remote/userRemote';
 export default function InitialScreen() {
   const navigation = useNavigation();
 
@@ -13,10 +15,19 @@ export default function InitialScreen() {
   useEffect(() => {
     Intial();
   }, []);
+
   const Intial = async () => {
     const token = await getTokenuser();
-    console.log('hhghuhjhhfdsgrxgchgcfrxsrx',token);
-    
+    console.log('hhghuhjhhfdsgrxgchgcfrxsrx', token);
+    // const Data = await GetLoginData();
+    // const Response = await getMyProfileremote({status: Data?.status});
+    // if (Response) {
+    //   console.log('Response', Response);
+    //   SaveUserInfo(Response);
+    // } else {
+    //   SaveUserInfo(null);
+    // }
+
     setTimeout(() => {
       if (token == null) {
         navigation.reset({

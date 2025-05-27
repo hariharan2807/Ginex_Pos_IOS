@@ -1,41 +1,54 @@
 /* eslint-disable prettier/prettier */
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import InitialScreen from '../Screen/InitialScreen';
-import HomeScreen from '../Screen/HomeScreen';
+import HomeScreen from '../Screen/InventryScreen';
 import ProfileScreen from '../Screen/ProfileScreen';
+import ReportScreen from '../Screen/ReportScreen';
+import InventryScreen from '../Screen/InventryScreen';
+import StockScreen from '../Screen/StockScreen';
+import POSScreen from '../Screen/PosScreen';
 
-const HomeStack = createNativeStackNavigator();
-const OrderStack = createNativeStackNavigator();
+const ReportStack = createNativeStackNavigator();
+const POSStack = createNativeStackNavigator();
 const AccountStack = createNativeStackNavigator();
+const StockStack = createNativeStackNavigator();
+const InventryStack = createNativeStackNavigator();
+
 const StackConfig = {headerShown: false};
 
-export function Dashboard(props: any) {
+export function Report(props: any) {
   return (
-    <HomeStack.Navigator screenOptions={StackConfig}>
-      <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
-    </HomeStack.Navigator>
+    <ReportStack.Navigator screenOptions={StackConfig}>
+      <ReportStack.Screen name="ReportScreen" component={ReportScreen} />
+    </ReportStack.Navigator>
   );
 }
-export function Order(props: any) {
+export function POS(props: any) {
   return (
-    <OrderStack.Navigator screenOptions={StackConfig}>
-           <AccountStack.Screen
-        name="InitialScreen"
-        component={InitialScreen}
-      />
-      {/* <OrderStack.Screen name="OrderScreen" component={OrderScreen} /> */}
-    </OrderStack.Navigator>
+    <POSStack.Navigator screenOptions={StackConfig}>
+      <POSStack.Screen name="POSScreen" component={POSScreen} />
+    </POSStack.Navigator>
   );
 }
 export function Account(props: any) {
   return (
     <AccountStack.Navigator screenOptions={StackConfig}>
       <AccountStack.Screen name="ProfileScreen" component={ProfileScreen} />
-      {/* <AccountStack.Screen
-        name="TomorrowOrderScreen"
-        component={InitialScreen}
-      /> */}
     </AccountStack.Navigator>
+  );
+}
+export function Stock(props: any) {
+  return (
+    <StockStack.Navigator screenOptions={StackConfig}>
+      <StockStack.Screen name="StockScreen" component={StockScreen} />
+    </StockStack.Navigator>
+  );
+}
+export function Inventry(props: any) {
+  return (
+    <InventryStack.Navigator screenOptions={StackConfig}>
+      <InventryStack.Screen name="InventryScreen" component={InventryScreen} />
+    </InventryStack.Navigator>
   );
 }
