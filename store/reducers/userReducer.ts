@@ -3,6 +3,7 @@ import {
   DECREASE_COUNT,
   HANDLE_ERROR,
   INCREASE_COUNT,
+  REPORT_LIST_DATA,
   SAVE_IP,
   SAVE_JWT_TOKEN,
   USER_INFO,
@@ -16,6 +17,7 @@ const initialState = {
   valuedate: null,
   count: 20,
   user_info: null,
+  report_list: null,
 };
 
 interface actionShape {
@@ -65,6 +67,14 @@ const User = (state = initialState, action: actionShape): any => {
         user_info: action.payload,
       };
     }
+    case REPORT_LIST_DATA: {
+      console.log("report_list-=-=-=",action.payload,state)
+      return {
+        ...state,
+        report_list: action.payload,
+      };
+    }
+
     default:
       return state;
   }

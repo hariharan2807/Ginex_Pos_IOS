@@ -8,6 +8,12 @@ import ReportScreen from '../Screen/ReportScreen';
 import InventryScreen from '../Screen/InventryScreen';
 import StockScreen from '../Screen/StockScreen';
 import POSScreen from '../Screen/PosScreen';
+import {
+  CustomizedReportScreeen,
+  DateMonthReportScreen,
+  ItemWiseReportScreen,
+  OrderwiseReportScreen,
+} from '../Screen/ReportListScreen';
 
 const ReportStack = createNativeStackNavigator();
 const POSStack = createNativeStackNavigator();
@@ -21,6 +27,24 @@ export function Report(props: any) {
   return (
     <ReportStack.Navigator screenOptions={StackConfig}>
       <ReportStack.Screen name="ReportScreen" component={ReportScreen} />
+      
+      <ReportStack.Screen
+        name="ItemWiseReportScreen"
+        component={ItemWiseReportScreen}
+      />
+      <ReportStack.Screen
+        name="OrderwiseReportScreen"
+        component={OrderwiseReportScreen}
+      />
+
+      <ReportStack.Screen
+        name="DateMonthReportScreen"
+        component={DateMonthReportScreen}
+      />
+      <ReportStack.Screen
+        name="CustomizedReportScreeen"
+        component={CustomizedReportScreeen}
+      />
     </ReportStack.Navigator>
   );
 }

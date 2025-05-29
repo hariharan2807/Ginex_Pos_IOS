@@ -13,6 +13,8 @@ import PlansPricingScreen from '../Screen/PlansPricingScreen';
 // import BottomTabNavigation from './BottomTabNavigation';
 import {Host} from 'react-native-portalize';
 import ChangePasswordScreen from '../Screen/ChangePasswordScreen';
+import { ItemWiseReportScreen, OrderwiseReportScreen ,DateMonthReportScreen, CustomizedReportScreeen} from '../Screen/ReportListScreen';
+import ReportScreen from '../Screen/ReportScreen';
 
 // import TomorrowOrderScreen from '../Screen/TomorrowOrderScreen';
 
@@ -60,7 +62,26 @@ export default function RootNavigation() {
             name="ChangePasswordScreen"
             component={ChangePasswordScreen}
           />
-          
+              <RootNavigator.Screen
+            name="OrderwiseReportScreen"
+            component={OrderwiseReportScreen}
+          />
+           <RootNavigator.Screen
+            name="ItemWiseReportScreen"
+            component={ItemWiseReportScreen}
+          />
+            <RootNavigator.Screen
+            name="DateMonthReportScreen"
+            component={DateMonthReportScreen}
+          />
+           <RootNavigator.Screen
+            name="CustomizedReportScreeen"
+            component={CustomizedReportScreeen}
+          />
+             <RootNavigator.Screen
+            name="ReportScreen"
+            component={ReportScreen}
+          />
         </RootNavigator.Navigator>
       </Host>
     </NavigationContainer>

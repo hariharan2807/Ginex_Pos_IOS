@@ -16,7 +16,13 @@ export default {
   whatsapp:require('../asset/image/whatsapp.png'),
   mail:require('../asset/image/mail.png'),
   call:require('../asset/image/call.png'),
-
+  rupee:require('../asset/image/rupee.png'),
+  bag:require('../asset/image/bag.png'),
+  braker:require('../asset/image/braker.png'),
+  inventry:require('../asset/image/inventry.png'),
+  calendar:require('../asset/image/calendar.png'),
+  inventry1:require('../asset/image/inventry1.png'),
+  search:require('../asset/image/search.png'),
 
   
 };

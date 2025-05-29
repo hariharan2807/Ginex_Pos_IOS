@@ -6,6 +6,7 @@ import {
   INCREASE_COUNT,
   DECREASE_COUNT,
   USER_INFO,
+  REPORT_LIST_DATA,
 } from './actionTypes';
 
 export const saveIpAction = (payload: string) => ({
@@ -35,5 +36,9 @@ export const decreaseCount = (payload: any) => ({
 });
 export const SaveUserInfo = (payload: any) => ({
   type: USER_INFO,
+  payload,
+});
+export const SaveReportdata = (payload: any) => ({
+  type: REPORT_LIST_DATA,
   payload,
 });

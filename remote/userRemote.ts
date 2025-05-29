@@ -8,6 +8,9 @@ const req_check_report_password = 'api/check_report_password';
 const req_change_password='api/change_password'
 const req_printer_sizes='api/printer_sizes'
 const req_edit_profile='api/edit_profile'
+const req_dashboard='api/dashboard'
+const req_product_based_report='api/product_based_report'
+const req_sales_based_report='api/sales_based_report'
 //OnlY POST
 //Get query key
 
@@ -113,6 +116,66 @@ export const getEditProfileremote = async (params: any) => {
     const response = await requestServer(
       METHODS.POST,
       BASE_URL + req_edit_profile,
+      params,
+    );
+    console.log('response', response?.data?.data);
+    return response.status === 200
+      ? response?.data
+      : failedLog('getLoginremote()', response);
+  } catch (err) {
+    console.log('err', err);
+    return {
+      status: false,
+      statusCode: err?.statusCode,
+      res: err?.data,
+    };
+  }
+};
+export const getProductBasedremote = async (params: any) => {
+  try {
+    const response = await requestServer(
+      METHODS.POST,
+      BASE_URL + req_product_based_report,
+      params,
+    );
+    console.log('response', response?.data?.data);
+    return response.status === 200
+      ? response?.data
+      : failedLog('getLoginremote()', response);
+  } catch (err) {
+    console.log('err', err);
+    return {
+      status: false,
+      statusCode: err?.statusCode,
+      res: err?.data,
+    };
+  }
+};
+export const getSalesBasedremote = async (params: any) => {
+  try {
+    const response = await requestServer(
+      METHODS.POST,
+      BASE_URL + req_sales_based_report,
+      params,
+    );
+    console.log('response', response?.data?.data);
+    return response.status === 200
+      ? response?.data
+      : failedLog('getLoginremote()', response);
+  } catch (err) {
+    console.log('err', err);
+    return {
+      status: false,
+      statusCode: err?.statusCode,
+      res: err?.data,
+    };
+  }
+};
+export const getReportemote = async (params: any) => {
+  try {
+    const response = await requestServer(
+      METHODS.POST,
+      BASE_URL + req_dashboard,
       params,
     );
     console.log('response', response?.data?.data);

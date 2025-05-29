@@ -40,6 +40,13 @@ import {errorBox, infoBox} from '../../workers/utils';
 import {SaveUserInfo} from '../../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import {TextInput} from 'react-native-paper';
+// import RNBluetoothSerial from 'react-native-bluetooth-serial-next';
+import {
+  BluetoothManager,
+  BluetoothEscposPrinter,
+} from 'react-native-bluetooth-escpos-printer';
+
+import RNPrint from 'react-native-print';
 
 export default function ProfileScreen() {
   const dispatch = useDispatch();
@@ -54,7 +61,7 @@ export default function ProfileScreen() {
   const [reportcode, setReportCode] = useState('');
   const [logout, setLogOut] = useState(false);
   const [visible, setVisible] = useState(true);
-  const [devices, setDevices] = useState({});
+  const [devices, setDevices] = useState([]);
   const [connectedDevice, setConnectedDevice] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
 
@@ -77,11 +84,55 @@ export default function ProfileScreen() {
     },
     {id: 3, name: 'Change Password', img: assets_manifest?.lock, screen: ''},
     {id: 4, name: 'Please Select Your Printer', img: assets_manifest?.printer},
-    {id: 5, name: 'Report', img: assets_manifest?.report, screen: ''},
+    // {id: 5, name: 'Report', img: assets_manifest?.report, screen: ''},
   ];
   useFocusEffect(
     useCallback(() => {
       MyProfile(); // Call your function when screen is focused
+    }, []),
+  );
+  useFocusEffect(
+    React.useCallback(() => {
+      const subscription = manager.onStateChange(state => {
+        console.log('state', state);
+        if (state === 'PoweredOn') {
+          manager.startDeviceScan(null, null, (error, device) => {
+            if (device?.name) {
+              console.log('Found device:', device.name);
+            }
+          });
+          subscription.remove();
+        } else {
+          // Show Alert and redirect to Bluetooth settings
+          Alert.alert(
+            'Bluetooth is Off',
+            'Please enable Bluetooth to continue',
+            [
+              {
+                text: 'Cancel',
+                style: 'cancel',
+              },
+              {
+                text: 'Open Settings',
+                onPress: () => {
+                  if (Platform.OS === 'ios') {
+                    Linking.openURL('App-Prefs:Bluetooth');
+                    // fallback: Linking.openSettings() if this fails
+                  } else {
+                    Linking.openSettings(); // Android
+                  }
+                },
+              },
+            ],
+            {cancelable: false},
+          );
+        }
+      }, true);
+
+      return () => {
+        manager.stopDeviceScan();
+        subscription.remove();
+      };
     }, []),
   );
 
@@ -108,7 +159,7 @@ export default function ProfileScreen() {
     console.log('type----->', type);
     const Data = await GetLoginData();
     if (!passwordcode) {
-      return errorBox('Invalid Password');
+      return errorBox('Please Enter Password');
     }
     const Response = await getCheckReportPasswordremote({
       password: passwordcode,
@@ -132,55 +183,76 @@ export default function ProfileScreen() {
       errorBox(Response?.res?.message);
     }
   };
-  console.log('devices', devices);
 
   useEffect(() => {
-    if (Platform.OS === 'ios') {
-      scanAndConnect();
-    } else {
-      requestAndroidPermissions().then(scanAndConnect);
-    }
+    const startScan = async () => {
+      if (Platform.OS === 'android') {
+        const granted = await PermissionsAndroid.requestMultiple([
+          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        ]);
+        if (
+          granted['android.permission.BLUETOOTH_SCAN'] !== 'granted' ||
+          granted['android.permission.ACCESS_FINE_LOCATION'] !== 'granted'
+        ) {
+          return;
+        }
+      }
 
-    return () => manager.destroy();
+      manager.startDeviceScan(null, null, (error, device) => {
+        if (error) {
+          console.log('Scan error:', error);
+          return;
+        }
+
+        if (device?.name) {
+          setDevices(prev => {
+            if (!prev.find(d => d.id === device.id)) {
+              return [...prev, device];
+            }
+            return prev;
+          });
+        }
+      });
+    };
+
+    startScan();
+
+    return () => {
+      manager.stopDeviceScan();
+    };
   }, []);
 
-  const requestAndroidPermissions = async () => {
-    if (Platform.OS === 'android') {
-      await PermissionsAndroid.requestMultiple([
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-        PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      ]);
+  // Handle connect
+  const connectToDevice = async (device: any) => {
+    try {
+      const connectedDevice = await manager.connectToDevice(device.id);
+      await connectedDevice.discoverAllServicesAndCharacteristics();
+      console.log('Connected to:', connectedDevice.name);
+    } catch (e) {
+      console.log('Connection error:', e);
     }
   };
 
-  const scanAndConnect = () => {
-    manager.startDeviceScan(null, null, (error, device) => {
-      if (error) {
-        console.log('Scan error:', error);
-        return;
-      }
-
-      if (device && device.name && !devices[device.id]) {
-        console.log('Found:', device.name);
-        setDevices(prev => ({...prev, [device.id]: device}));
-      }
-    });
-
-    // Stop scan after 10 seconds
-    setTimeout(() => {
-      manager.stopDeviceScan();
-    }, 10000);
-  };
-
-  const connectToDevice = async device => {
+  const printHelloWorld = async () => {
+    const options = {
+      // This depends on your printer API; typically, it might expect text & position
+      // Here's a generic example:
+      x: 0,          // x position
+      y: 0,          // y position
+      width: 500,    // width of label area
+      height: 50,    // height of label area
+      fontName: 'FONT_1',   // font type - use your printer constants
+      fontSize: 24,         // font size
+      text: 'Hello World'   // text to print
+    };
+  
     try {
-      const connected = await manager.connectToDevice(device.id);
-      await connected.discoverAllServicesAndCharacteristics();
-      setConnectedDevice(connected);
-      alert(`Connected to ${connected.name}`);
-    } catch (error) {
-      alert('Connection failed: ' + error.message);
+      await BluetoothEscposPrinter.printLabel(options);
+      console.log('Printed "Hello World" successfully');
+    } catch (err) {
+      console.error('Error printing:', err);
     }
   };
   const WhatApp = () => {
@@ -245,7 +317,7 @@ export default function ProfileScreen() {
   console.log('AdminState', AdminState?.user_phone_number);
   return (
     <View style={[tailwind('h-full bg-white'), {}]}>
-      <TopBar text="Setting" type={1}/>
+      <TopBar text="Setting" type={1} />
       <ScrollView>
         <View
           style={[
@@ -321,8 +393,8 @@ export default function ProfileScreen() {
                   navigation?.navigate(i?.screen);
                 } else if (i?.id == 3) {
                   setPassword(true);
-                } else if (i?.id == 5) {
-                  setReport(true);
+                } else if (i?.id == 4) {
+                  printHelloWorld();
                 }
               }}
               style={[
@@ -341,6 +413,50 @@ export default function ProfileScreen() {
             </TouchableOpacity>
           );
         })}
+        {devices?.length && (
+          <View style={[tailwind('mt-3 px-3 '), {}]}>
+            <Text style={[tailwind('font-16 font-bold text-black'), {}]}>
+              Available Devices
+            </Text>
+          </View>
+        )}
+        <FlatList
+          data={devices.filter(device => !!device.name)} // ✅ Only show devices with a name
+          keyExtractor={item => item.id}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => connectToDevice(item)}
+              style={tailwind(
+                'mx-3 my-3 flex-row items-center white-shadow px-5 py-3 rounded-xl mt-5',
+              )}>
+              <Text>{item.name}</Text>
+            </TouchableOpacity>
+          )}
+          ListEmptyComponent={
+            <View style={{alignItems: 'center', marginTop: 20}}>
+              <Text>No Devices Found</Text>
+            </View>
+          }
+        />
+        <TouchableOpacity
+          // key={index}
+          onPress={() => {
+            setReport(true);
+          }}
+          style={[
+            tailwind(
+              'mx-3 my-3 flex-row items-center  white-shadow px-5 py-3 rounded-xl mt-5',
+            ),
+            {},
+          ]}>
+          <Image
+            source={assets_manifest?.report}
+            style={[tailwind(''), {height: 25, width: 25}]}
+          />
+          <Text style={[tailwind('mt-1 ml-2 font-semi font-15'), {}]}>
+            Report
+          </Text>
+        </TouchableOpacity>
         <View
           style={[
             tailwind('mx-3 my-3  white-shadow px-5 py-3 rounded-xl mt-5'),
@@ -402,6 +518,7 @@ export default function ProfileScreen() {
             <TouchableOpacity
               onPress={() => {
                 setPassword(false);
+                setPasswordcode('');
               }}>
               <Image
                 source={assets_manifest?.close}
@@ -516,6 +633,8 @@ export default function ProfileScreen() {
             <TouchableOpacity
               onPress={() => {
                 setReport(false);
+                setReportCode('');
+                setPasswordcode('');
               }}>
               <Image
                 source={assets_manifest?.close}
