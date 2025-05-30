@@ -23,6 +23,7 @@ export default {
   calendar:require('../asset/image/calendar.png'),
   inventry1:require('../asset/image/inventry1.png'),
   search:require('../asset/image/search.png'),
+  delete:require('../asset/image/delete.png'),
 
   
 };

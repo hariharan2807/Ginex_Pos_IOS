@@ -11,6 +11,7 @@ const req_edit_profile='api/edit_profile'
 const req_dashboard='api/dashboard'
 const req_product_based_report='api/product_based_report'
 const req_sales_based_report='api/sales_based_report'
+const req_order_list='api/order_list'
 //OnlY POST
 //Get query key
 
@@ -156,6 +157,26 @@ export const getSalesBasedremote = async (params: any) => {
     const response = await requestServer(
       METHODS.POST,
       BASE_URL + req_sales_based_report,
+      params,
+    );
+    console.log('response', response?.data?.data);
+    return response.status === 200
+      ? response?.data
+      : failedLog('getLoginremote()', response);
+  } catch (err) {
+    console.log('err', err);
+    return {
+      status: false,
+      statusCode: err?.statusCode,
+      res: err?.data,
+    };
+  }
+};
+export const getOrderListremote = async (params: any) => {
+  try {
+    const response = await requestServer(
+      METHODS.POST,
+      BASE_URL + req_order_list,
       params,
     );
     console.log('response', response?.data?.data);
