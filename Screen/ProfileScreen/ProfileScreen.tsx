@@ -239,15 +239,15 @@ export default function ProfileScreen() {
     const options = {
       // This depends on your printer API; typically, it might expect text & position
       // Here's a generic example:
-      x: 0,          // x position
-      y: 0,          // y position
-      width: 500,    // width of label area
-      height: 50,    // height of label area
-      fontName: 'FONT_1',   // font type - use your printer constants
-      fontSize: 24,         // font size
-      text: 'Hello World'   // text to print
+      x: 0, // x position
+      y: 0, // y position
+      width: 500, // width of label area
+      height: 50, // height of label area
+      fontName: 'FONT_1', // font type - use your printer constants
+      fontSize: 24, // font size
+      text: 'Hello World', // text to print
     };
-  
+
     try {
       await BluetoothEscposPrinter.printLabel(options);
       console.log('Printed "Hello World" successfully');
@@ -258,7 +258,7 @@ export default function ProfileScreen() {
   const WhatApp = () => {
     Care?.current?.close();
 
-    Linking.openURL('https://wa.me/+919384542122');
+    Linking.openURL(`https://wa.me/${AdminState?.whatapp_number}`);
   };
   const handleEmail = async () => {
     Care?.current?.close();
@@ -266,9 +266,9 @@ export default function ProfileScreen() {
     const email = 'support@example.com';
     const subject = 'Customer Support';
     const body = 'Hi, I need help with...';
-    const url = `mailto:${email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    const url = `mailto:${
+      AdminState?.customer_care_mail
+    }?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     const canOpen = await Linking.canOpenURL(url);
 
@@ -284,7 +284,7 @@ export default function ProfileScreen() {
   const handleCall = () => {
     Care?.current?.close();
     const phoneNumber = '+1234567890'; // Include country code if needed
-    Linking.openURL(`tel:${phoneNumber}`);
+    Linking.openURL(`tel:${AdminState?.customer_care_mobile}`);
   };
   const HandleLogOut = async () => {
     await removeTokenUser();

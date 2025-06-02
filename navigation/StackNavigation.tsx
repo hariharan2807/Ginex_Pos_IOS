@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import InitialScreen from '../Screen/InitialScreen';
-import HomeScreen from '../Screen/InventryScreen';
 import ProfileScreen from '../Screen/ProfileScreen';
 import ReportScreen from '../Screen/ReportScreen';
 import InventryScreen from '../Screen/InventryScreen';
@@ -14,6 +12,7 @@ import {
   ItemWiseReportScreen,
   OrderwiseReportScreen,
 } from '../Screen/ReportListScreen';
+import { InventryCategoryScreen ,InventrySubCategoryScreen} from '../Screen/InventryCategoryScreen';
 
 const ReportStack = createNativeStackNavigator();
 const POSStack = createNativeStackNavigator();
@@ -27,7 +26,7 @@ export function Report(props: any) {
   return (
     <ReportStack.Navigator screenOptions={StackConfig}>
       <ReportStack.Screen name="ReportScreen" component={ReportScreen} />
-      
+
       <ReportStack.Screen
         name="ItemWiseReportScreen"
         component={ItemWiseReportScreen}
@@ -71,8 +70,17 @@ export function Stock(props: any) {
 }
 export function Inventry(props: any) {
   return (
-    <InventryStack.Navigator screenOptions={StackConfig}>
+    <InventryStack.Navigator screenOptions={StackConfig} initialRouteName='InventryScreen'>
       <InventryStack.Screen name="InventryScreen" component={InventryScreen} />
+      <InventryStack.Screen
+        name="InventryCategoryScreen"
+        component={InventryCategoryScreen}
+      />
+        <InventryStack.Screen
+        name="InventrySubCategoryScreen"
+        component={InventrySubCategoryScreen}
+      />
+      
     </InventryStack.Navigator>
   );
 }

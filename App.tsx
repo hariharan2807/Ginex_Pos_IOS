@@ -36,6 +36,8 @@ import tailwind from '@tailwind';
 import Toast from 'react-native-toast-message';
 import {toastConfig} from './constants/toastConfig';
 import { Buffer } from 'buffer';
+import 'react-native-gesture-handler';
+import 'react-native-reanimated'; // 👈 Must be FIRST import
 
 
 const queryClient = new QueryClient();

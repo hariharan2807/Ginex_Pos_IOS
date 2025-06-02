@@ -26,7 +26,7 @@ const requestServerMultiPart = function (
       headers: {
         Accept: 'application/json',
         'Content-Type': 'multipart/form-data',
-        Authorization: 'Bearer ' + token,
+        Authorization: token,
       },
     };
     if (method === METHODS.POST || method === METHODS.GET) {
@@ -37,7 +37,7 @@ const requestServerMultiPart = function (
       headers: {
         Accept: 'application/json',
         'Content-Type': 'multipart/form-data',
-        Authorization: 'Bearer ' + token,
+        Authorization:  token,
       },
       method: 'POST',
       body: payload,

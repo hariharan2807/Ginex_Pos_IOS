@@ -13,8 +13,14 @@ import PlansPricingScreen from '../Screen/PlansPricingScreen';
 // import BottomTabNavigation from './BottomTabNavigation';
 import {Host} from 'react-native-portalize';
 import ChangePasswordScreen from '../Screen/ChangePasswordScreen';
-import { ItemWiseReportScreen, OrderwiseReportScreen ,DateMonthReportScreen, CustomizedReportScreeen} from '../Screen/ReportListScreen';
+import {
+  ItemWiseReportScreen,
+  OrderwiseReportScreen,
+  DateMonthReportScreen,
+  CustomizedReportScreeen,
+} from '../Screen/ReportListScreen';
 import ReportScreen from '../Screen/ReportScreen';
+import { InventryCategoryScreen ,InventrySubCategoryScreen} from '../Screen/InventryCategoryScreen';
 
 // import TomorrowOrderScreen from '../Screen/TomorrowOrderScreen';
 
@@ -58,30 +64,37 @@ export default function RootNavigation() {
             name="PlansPricingScreen"
             component={PlansPricingScreen}
           />
-             <RootNavigator.Screen
+          <RootNavigator.Screen
             name="ChangePasswordScreen"
             component={ChangePasswordScreen}
           />
-              <RootNavigator.Screen
+          <RootNavigator.Screen
             name="OrderwiseReportScreen"
             component={OrderwiseReportScreen}
           />
-           <RootNavigator.Screen
+          <RootNavigator.Screen
             name="ItemWiseReportScreen"
             component={ItemWiseReportScreen}
           />
-            <RootNavigator.Screen
+          <RootNavigator.Screen
             name="DateMonthReportScreen"
             component={DateMonthReportScreen}
           />
-           <RootNavigator.Screen
+          <RootNavigator.Screen
             name="CustomizedReportScreeen"
             component={CustomizedReportScreeen}
           />
-             <RootNavigator.Screen
-            name="ReportScreen"
-            component={ReportScreen}
+          <RootNavigator.Screen name="ReportScreen" component={ReportScreen} />
+          <RootNavigator.Screen
+            name="InventryCategoryScreen"
+            component={InventryCategoryScreen}
           />
+          
+      <RootNavigator.Screen
+            name="InventrySubCategoryScreen"
+            component={InventrySubCategoryScreen}
+          />
+
         </RootNavigator.Navigator>
       </Host>
     </NavigationContainer>
