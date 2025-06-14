@@ -12,7 +12,11 @@ import {
   ItemWiseReportScreen,
   OrderwiseReportScreen,
 } from '../Screen/ReportListScreen';
-import { InventryCategoryScreen ,InventrySubCategoryScreen} from '../Screen/InventryCategoryScreen';
+import {
+  InventryCategoryScreen,
+  InventrySubCategoryScreen,
+} from '../Screen/InventryCategoryScreen';
+import {AddProductScreen} from '../Screen/ProductScreen';
 
 const ReportStack = createNativeStackNavigator();
 const POSStack = createNativeStackNavigator();
@@ -65,22 +69,28 @@ export function Stock(props: any) {
   return (
     <StockStack.Navigator screenOptions={StackConfig}>
       <StockStack.Screen name="StockScreen" component={StockScreen} />
+      <StockStack.Screen name="AddProductScreen" component={AddProductScreen} />
     </StockStack.Navigator>
   );
 }
 export function Inventry(props: any) {
   return (
-    <InventryStack.Navigator screenOptions={StackConfig} initialRouteName='InventryScreen'>
+    <InventryStack.Navigator
+      screenOptions={StackConfig}
+      initialRouteName="InventryScreen">
       <InventryStack.Screen name="InventryScreen" component={InventryScreen} />
       <InventryStack.Screen
         name="InventryCategoryScreen"
         component={InventryCategoryScreen}
       />
-        <InventryStack.Screen
+      <InventryStack.Screen
         name="InventrySubCategoryScreen"
         component={InventrySubCategoryScreen}
       />
-      
+      <InventryStack.Screen
+        name="AddProductScreen"
+        component={AddProductScreen}
+      />
     </InventryStack.Navigator>
   );
 }

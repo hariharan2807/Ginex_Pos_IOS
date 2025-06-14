@@ -34,7 +34,12 @@ import Feather from 'react-native-vector-icons/Feather';
 import {errorBox} from '../../workers/utils';
 import LinearGradient from 'react-native-linear-gradient';
 import {GetLoginData} from '../../workers/localStorage';
-import {getCheckReportPasswordremote} from '@remote/userRemote';
+import {
+  getCheckReportPasswordremote,
+  getMyProfileremote,
+} from '@remote/userRemote';
+import {SaveUserInfo} from '../../store/actions';
+import {useDispatch} from 'react-redux';
 
 export default function CustomBottomTab({state, descriptors, navigation}: any) {
   const [showTab, setShowTab] = useState(true);
@@ -46,7 +51,7 @@ export default function CustomBottomTab({state, descriptors, navigation}: any) {
   const [passwordcode, setPasswordcode] = useState('');
   const [visible, setVisible] = useState(true);
   const rotateAnim = useRef(new Animated.Value(0)).current;
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const show = Keyboard.addListener('keyboardDidShow', () =>
       setShowTab(false),
@@ -107,6 +112,23 @@ export default function CustomBottomTab({state, descriptors, navigation}: any) {
       errorBox(Response?.res?.message);
     }
   };
+  const MyProfile = async () => {
+    const Data = await GetLoginData();
+    console.log('Data-------->', Data?.status);
+    const Response = await getMyProfileremote({status: Data?.status});
+    console.log('MyProfile', Response);
+    if (Response) {
+      console.log('ResponseSaveUserInfo', Response);
+      dispatch(SaveUserInfo(Response));
+      if (Response?.stock_status === '1') {
+        navigation?.navigate('Stock');
+      } else {
+        errorBox('Access Restricted by Admin');
+      }
+    } else {
+      errorBox('Profile Api Fail');
+    }
+  };
   return (
     <View style={tailwind('flex flex-row bg-white items-center')}>
       {state.routes.map((route: any, index: number) => {
@@ -129,6 +151,11 @@ export default function CustomBottomTab({state, descriptors, navigation}: any) {
             setPassword(true); // Show modal for index 2
             return;
           }
+          if (index === 1) {
+            MyProfile();
+            return;
+          }
+
           if (!isFocused && !event.defaultPrevented) {
             navigation.navigate(route.name);
             // console.log(route);
@@ -219,12 +246,22 @@ export default function CustomBottomTab({state, descriptors, navigation}: any) {
                   <TouchableOpacity
                     activeOpacity={0.9}
                     onPress={() => navigation.navigate('POS')}
-                    style={styles.button}>
+                    style={[
+                      styles.button,
+                      {backgroundColor: isFocused ? '#3B6EB5' : 'white'},
+                    ]}>
                     <Image
                       source={require('../../asset/image/Pos.png')}
-                      style={{width: 35, height: 35, tintColor: '#fff'}}
+                      style={{
+                        width: 35,
+                        height: 35,
+                        tintColor: isFocused ? 'white' : 'black',
+                      }}
                       resizeMode="contain"
                     />
+                    {!isFocused && (
+                      <Text style={[tailwind('mt-2'), {}]}> {label}</Text>
+                    )}
                   </TouchableOpacity>
                 </View>
               ) : index === 4 ? (
@@ -259,8 +296,8 @@ export default function CustomBottomTab({state, descriptors, navigation}: any) {
         isVisible={password}>
         <View
           style={[
-            tailwind('rounded-xl mx-3 px-5 py-5 '),
-            {backgroundColor: '#ffffff'},
+            tailwind('rounded-xl  px-5 py-5'),
+            {backgroundColor: '#ffffff', width: '100%'},
           ]}>
           <TouchableOpacity
             onPress={() => {
@@ -335,22 +372,22 @@ export default function CustomBottomTab({state, descriptors, navigation}: any) {
 const styles = StyleSheet.create({
   spinner: {
     position: 'absolute',
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 105,
+    height: 105,
+    borderRadius: 70,
     justifyContent: 'center',
     alignItems: 'center',
   },
   outerCircle: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 125,
+    height: 125,
+    borderRadius: 70,
+    padding: 10,
   },
   button: {
-    backgroundColor: '#3B6EB5',
-    borderRadius: 40,
-    width: 75,
-    height: 75,
+    borderRadius: 70,
+    width: 100,
+    height: 100,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 2, // stays on top of the rotating border

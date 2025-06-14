@@ -39,7 +39,6 @@ export default function ItemWiseReportScreen() {
   }, [printerSizeId]);
   const selectedItem = weeks.find(item => item.value === printerSizeId);
 
-  console.log('selectedItem', selectedItem);
   const ProductList = async () => {
     const Status = await GetLoginData();
     const Response = await getProductBasedremote({

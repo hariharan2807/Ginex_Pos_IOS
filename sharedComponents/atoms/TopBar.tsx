@@ -8,8 +8,11 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 interface prototype {
   text: string;
   type: number;
-  Refresh: () => void; 
-  Care:any
+  Refresh: () => void;
+  Care: any;
+  search: number;
+  itemsubcat:any,
+  cat:any
 }
 export const TopBar = (props: prototype) => {
   const navigation = useNavigation();
@@ -80,7 +83,11 @@ export const TopBar = (props: prototype) => {
           />
         </View>
         <View style={[tailwind('flex-row items-center'), {marginLeft: 'auto'}]}>
-          <TouchableOpacity style={[tailwind('ml-1'), {}]}>
+          <TouchableOpacity
+            style={[tailwind('ml-1'), {}]}
+            onPress={() => {
+              navigation.navigate('SearchScreen',{text:props?.search===1?'Inventry Search':'Stock Search',type:props?.search,itemsubcat:props?.itemsubcat,cat:props?.cat});
+            }}>
             <Image
               resizeMode="contain"
               style={[
@@ -90,12 +97,16 @@ export const TopBar = (props: prototype) => {
               source={assets_manifest.search}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={[tailwind('ml-1'), {}]} onPress={props?.Refresh}>
+          <TouchableOpacity
+            style={[tailwind('ml-1'), {}]}
+            onPress={props?.Refresh}>
             <EvilIcons name="refresh" color={'white'} size={40} />
           </TouchableOpacity>
-          <TouchableOpacity style={[tailwind('ml-1'), {}]} onPress={()=>{
-            props?.Care?.current?.open()
-          }}>
+          <TouchableOpacity
+            style={[tailwind('ml-1'), {}]}
+            onPress={() => {
+              props?.Care?.current?.open();
+            }}>
             <Image
               source={assets_manifest?.headset}
               style={[

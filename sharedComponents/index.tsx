@@ -6,6 +6,9 @@ import {TopBar} from './atoms/TopBar';
 import {ReportCountCom} from './atoms/ReportCountCom';
 import SesionExpired from './atoms/SesionExpired';
 import {OrderListCom} from './atoms/OrderListCom';
+import { TextInputCom } from './atoms/TextInputCom';
+import { ProductComp } from './atoms/ProductComp';
+import QuantityActions from './atoms/QuantityActions';
 
 export {
   OrderListCom,
@@ -16,4 +19,5 @@ export {
   Loadingcomp,
   TopBar,
   ReportCountCom,
+  TextInputCom,ProductComp,QuantityActions
 };

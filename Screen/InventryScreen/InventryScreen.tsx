@@ -9,22 +9,27 @@ import {
   Switch,
   Linking,
   Alert,
+  useWindowDimensions,
 } from 'react-native';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {saveIpAction} from '../../store/actions/appActions';
 import {GetLoginData} from '../../workers/localStorage';
 import {
+  getAllProductremote,
   getCategoryremote,
   getCategoryStatusremote,
   getDeleteCategoryremote,
   getDeleteSubCategoryremote,
+  getItemsallCategoryremote,
+  getItemsallSubCategoryremote,
   getMyProfileremote,
   getSubCategoryremote,
   getSubCategoryStatusremote,
+  getUnitremote,
 } from '@remote/userRemote';
 import {SaveUserInfo} from '@store/actions';
-import {TopBar} from '@sharedComponents';
+import {Loadingcomp, TopBar} from '@sharedComponents';
 import assets_manifest from '@assets';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
@@ -32,43 +37,83 @@ import Modal from 'react-native-modal';
 import {errorBox} from '../../workers/utils';
 import {Portal} from 'react-native-portalize';
 import {Modalize} from 'react-native-modalize';
+import LinearGradient from 'react-native-linear-gradient';
+import {InventryItems} from './Block/InventryItems';
 export default function InventryScreen() {
   const navigation = useNavigation();
+  const {height, width} = useWindowDimensions();
   const dispatch = useDispatch();
   const [data, setData] = useState(null);
   const [name, setName] = useState('');
   const [cat, setCat] = useState([]);
+  const [unit, setUnit] = useState([]);
+  const [unit1, setUnit1] = useState([]);
+
+  const [selecteditem, setSelecteditem] = useState(null);
+  const [selecteditemsub, setSelecteditemsub] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [loading1, setLoading1] = useState(false);
+  const [productNameSearch, setproductNameSearch] = useState([]);
+  // const [deleteProduct, setDeleteProduct] = useState(false);
   const [cat1, setCat1] = useState([]);
   const [subcat, setSubCat] = useState([]);
   const [subcat1, setSubCat1] = useState([]);
+  const [itemsubcat, setItemSubCat] = useState([]);
   const [logout, setLogOut] = useState(false);
   const [logout1, setLogOut1] = useState(false);
-  const Care = useRef(null);
+  const [allProduct, setAllProduct] = useState([]);
 
+  const Care = useRef(null);
   const [selectedDeleteid, setSelectedDeleteId] = useState('');
   const Poll = [
     {name: 'Items', status: 1},
     {name: 'Sub-Category', status: 1},
     {name: 'Category', status: 1},
   ];
-
   const [selectedval, setSelectedVal] = useState(Poll?.[0]);
-
   useEffect(() => {
     setName('');
-    // dispatch(saveIpAction('hari haran Boobathi Haasini'));
   }, [selectedval]);
-
   useFocusEffect(
     useCallback(() => {
-      // if (selectedval?.name == 'Category') {
       GetCategory();
-      // } else if (selectedval?.name == 'Category') {
+      GetItemsCategory();
       GetSubCategory();
-      // }
       MyProfile();
+      GetUnit();
     }, []),
   );
+  useEffect(() => {
+    // console.log("selecteditem",selecteditem)
+    AllSubItemCat(selecteditem);
+  }, []);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading1(true);
+      console.log('selecteditemsub', selecteditemsub?.category_status);
+      // if (!selecteditem?.category_id || !selecteditemsub?.subcategory_id) return;
+      const Data = await GetLoginData(); // move this inside
+      const products = await getAllProductremote({
+        category_id: selecteditem?.category_id,
+        status: Data?.status,
+        sub_category_id:
+          selecteditemsub != null && selecteditemsub?.category_status != 0
+            ? selecteditemsub?.subcategory_id
+            : '',
+      });
+      // setLoading1(false);
+      if (products?.status) {
+        setAllProduct(products?.data);
+        setproductNameSearch(products?.data);
+        setLoading1(false);
+      } else {
+        setLoading1(false);
+        setAllProduct([]);
+        setproductNameSearch([]);
+      }
+    };
+    fetchProducts();
+  }, [selecteditemsub, selecteditem]);
 
   const MyProfile = async () => {
     const Data = await GetLoginData();
@@ -82,25 +127,108 @@ export default function InventryScreen() {
     }
   };
   const GetCategory = async () => {
+    setLoading(true);
     const Data = await GetLoginData();
     const Response = await getCategoryremote({status: Data?.status});
+    setLoading(false);
     if (Response) {
+      setLoading(false);
       setCat(Response?.data);
       setCat1(Response?.data);
     } else {
+      setLoading(false);
       setCat([]);
       setCat1([]);
     }
   };
+  const GetUnit = async () => {
+    setLoading(true);
+    const Data = await GetLoginData();
+    const Response = await getUnitremote({status: Data?.status});
+    setLoading(false);
+    if (Response) {
+      setLoading(false);
+      console.log('data------->', Response);
+      setUnit(Response?.data);
+      setUnit1(Response?.data);
+    } else {
+      setLoading(false);
+      setUnit([]);
+      setUnit1([]);
+    }
+  };
+  const GetItemsCategory = async () => {
+    setLoading(true);
+    const Data = await GetLoginData();
+    const Response = await getItemsallCategoryremote({status: Data?.status});
+    setLoading(false);
+
+    if (Response) {
+      const firstCat = Response?.data?.[0];
+      setCat(Response?.data);
+      setCat1(Response?.data);
+      setSelecteditem(firstCat);
+      console.log('firstCat', firstCat);
+      const hasActiveSubcategory = Response?.data?.some(
+        sub => sub?.sub_category_status === '1',
+      );
+      // console.log('firstCat?.category_id',firstCat?.category_id,hasActiveSubcategory);
+      if (firstCat?.category_id && hasActiveSubcategory) {
+        GetItemAllSubCategory(firstCat?.category_id);
+      }
+    } else {
+      setCat([]);
+      setCat1([]);
+      setSelecteditem(null);
+    }
+  };
   const GetSubCategory = async () => {
+    setLoading(true);
     const Data = await GetLoginData();
     const Response = await getSubCategoryremote({status: Data?.status});
+    setLoading(false);
     if (Response) {
+      setLoading(false);
       setSubCat(Response?.data);
       setSubCat1(Response?.data);
     } else {
+      setLoading(false);
       setSubCat([]);
       setSubCat1([]);
+    }
+  };
+  const AllSubItemCat = (data: any) => {
+    setSelecteditem(data);
+    // const hasActiveSubcategory = cat?.some(
+    //   (sub) => sub?.sub_category_status === 1
+    // );
+    if (data?.category_id && data?.sub_category_status === '1') {
+      console.log('sub_category_statussub_category_status');
+      GetItemAllSubCategory(data?.category_id);
+    } else {
+      setItemSubCat([]);
+      setSelecteditemsub(null);
+    }
+    // if (data?.category_id) {
+    //   GetItemAllSubCategory(data?.category_id);
+    // }
+  };
+  const GetItemAllSubCategory = async (category_id: any) => {
+    const Data = await GetLoginData();
+    const Response = await getItemsallSubCategoryremote({
+      status: Data?.status,
+      category_id: category_id,
+    });
+    if (Response) {
+      const subcategories = Response?.data || [];
+      const firstSub = subcategories[0] || null;
+      setItemSubCat(subcategories);
+      setSelecteditemsub(firstSub);
+
+      console.log('Selected subcategory:', firstSub);
+    } else {
+      setItemSubCat([]);
+      setSelecteditemsub(null);
     }
   };
   const renderButton = (item, key) => {
@@ -141,6 +269,7 @@ export default function InventryScreen() {
     if (Data?.status) {
       setLogOut(false);
       GetCategory();
+      GetItemsCategory();
     }
   };
   const ONPressDel1 = async () => {
@@ -161,8 +290,10 @@ export default function InventryScreen() {
     category_name: string;
     category_image: string;
     cat: number;
+    type: number;
   }
   const CategoryList = (props: prototype) => {
+    console.log("category_idcategory_idcategory_idcategory_id",props?.category_id)
     const [isEnabled, setIsEnabled] = useState(props?.category_status == 1);
     useEffect(() => {
       setIsEnabled(props?.category_status == 1);
@@ -197,6 +328,7 @@ export default function InventryScreen() {
         setIsEnabled(!newStatus); // revert switch on error
       }
     };
+
     return (
       <View
         style={[
@@ -225,6 +357,15 @@ export default function InventryScreen() {
                   subcategory_id: props?.i?.subcategory_id,
                 });
               }
+              else if (props?.cat == 3) {
+                console?.log("props?.i?.category_id",props?.i)
+                navigation?.navigate('InventryUnitScreen', {
+                  text: 'Edit Unit',
+                  category_id: props?.i?.unit_id,
+                  category_name: props?.i?.unit_name,
+                
+                });
+              }
             }}>
             <Image
               source={assets_manifest?.editing}
@@ -244,13 +385,15 @@ export default function InventryScreen() {
               style={[tailwind('mr-3'), {height: 25, width: 25}]}
             />
           </TouchableOpacity>
-          <Switch
-            trackColor={{false: '#ccc', true: 'green'}}
-            thumbColor={'white'}
-            ios_backgroundColor="#ccc"
-            onValueChange={toggleSwitch}
-            value={isEnabled}
-          />
+          {props?.type !== 1 && (
+            <Switch
+              trackColor={{false: '#ccc', true: 'green'}}
+              thumbColor={'white'}
+              ios_backgroundColor="#ccc"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          )}
         </View>
       </View>
     );
@@ -264,6 +407,8 @@ export default function InventryScreen() {
     if (searchText === '') {
       setCat(cat1); // reset to full list
       setSubCat(subcat1); // reset to full list
+      setAllProduct(productNameSearch);
+      setUnit(unit1);
       return;
     }
 
@@ -277,12 +422,24 @@ export default function InventryScreen() {
         item?.subcategory_name.toLowerCase().includes(searchText),
       );
       setSubCat(filtered);
+    } else if (selectedval?.name === 'Items') {
+      const filtered = productNameSearch.filter(item =>
+        item?.product_name.toLowerCase().includes(searchText),
+      );
+      setAllProduct(filtered);
+    } else if (selectedval?.name === 'Unit') {
+      const filtered = unit.filter(item =>
+        item?.product_name.toLowerCase().includes(searchText),
+      );
+      setAllProduct(filtered);
     }
   };
 
   const Refresh = () => {
     GetCategory();
+    GetItemsCategory();
     GetSubCategory();
+    GetUnit();
   };
   const WhatApp = () => {
     Care?.current?.close();
@@ -315,9 +472,21 @@ export default function InventryScreen() {
     const phoneNumber = '+1234567890'; // Include country code if needed
     Linking.openURL(`tel:${data?.customer_care_mobile}`);
   };
+
+  if (loading) {
+    return <Loadingcomp />;
+  }
   return (
     <View style={[tailwind('h-full bg-white')]}>
-      <TopBar text="hi" type={0} Refresh={Refresh} Care={Care} />
+      <TopBar
+        text="hi"
+        type={0}
+        Refresh={Refresh}
+        itemsubcat={itemsubcat}
+        cat={cat}
+        Care={Care}
+        search={1}
+      />
       <View style={[tailwind('flex-row px-3 py-3'), {}]}>
         <View style={tailwind('flex-row flex-wrap px-3 py-3')}>
           {Poll.map((item, index) => renderButton(item, index))}
@@ -445,6 +614,102 @@ export default function InventryScreen() {
           </ScrollView>
         </View>
       )}
+      {selectedval?.name == 'Items' &&
+        (cat?.length ? (
+          <InventryItems
+            setSelecteditemsub={setSelecteditemsub}
+            selecteditemsub={selecteditemsub}
+            itemsubcat={itemsubcat}
+            GetItemAllSubCategory={AllSubItemCat}
+            cat={cat}
+            selecteditem={selecteditem}
+            setSelecteditem={setSelecteditem}
+            setAllProduct={setAllProduct}
+            allProduct={allProduct}
+            loading={loading1}
+            handleSearch={handleSearch}
+            name={name}
+            GetSubCategory={Refresh}
+            unit={unit}
+            // setDeleteProduct={setDeleteProduct}
+            // deleteProduct={deleteProduct}
+          />
+        ) : (
+          <View style={[tailwind('items-center h-full')]}>
+            <Image
+              source={assets_manifest?.search}
+              style={[
+                tailwind('items-center'),
+                {height: 50, width: 50, justifyContent: 'center'},
+              ]}
+            />
+            <Text style={[tailwind('font-bold text-black font-15 mt-2'), {}]}>
+              No Availanle Items Found
+            </Text>
+          </View>
+        ))}
+      {selectedval?.name == 'Unit' && (
+        <View style={[tailwind('h-full'), {}]}>
+          <View
+            style={[
+              tailwind('px-5 mx-3 rounded-full py-2 border flex-row'),
+              {},
+            ]}>
+            <Image
+              source={assets_manifest?.search}
+              style={[tailwind(''), {height: 30, width: 30}]}
+            />
+            <TextInput
+              placeholder="Search by name"
+              onChangeText={txt => {
+                handleSearch(txt);
+              }}
+              value={name}
+              style={[tailwind('text-black mx-2 font-15 font-bold'), {}]}
+              placeholderTextColor={'black'}
+            />
+          </View>
+          <ScrollView>
+            {unit?.length ? (
+              unit?.map((i: any, index: number) => {
+                return (
+                  <View style={[tailwind(''), {}]} key={index}>
+                    <CategoryList
+                      type={1}
+                      category_image={i?.category_image}
+                      category_name={i?.unit_name}
+                      i={i}
+                      category_status={i?.unit_status}
+                      category_id={i?.unit_id}
+                      cat={3}
+                    />
+                  </View>
+                );
+              })
+            ) : (
+              <View
+                style={[
+                  tailwind('items-center h-full'),
+                  {justifyContent: 'center'},
+                ]}>
+                <Image
+                  source={assets_manifest?.search}
+                  style={[
+                    tailwind('items-center'),
+                    {height: 50, width: 50, justifyContent: 'center'},
+                  ]}
+                />
+                <Text
+                  style={[tailwind('font-bold text-black font-15 mt-2'), {}]}>
+                  No Report Data Found
+                </Text>
+              </View>
+            )}
+            <View style={[tailwind('h-40'), {}]} />
+          </ScrollView>
+        </View>
+      )}
+
       <TouchableOpacity
         onPress={() => {
           if (selectedval?.name == 'Category') {
@@ -457,6 +722,18 @@ export default function InventryScreen() {
               text: 'Add SubCategory',
               category_id: '',
               data: cat,
+            });
+          } else if (selectedval?.name == 'Items') {
+            navigation?.navigate('AddProductScreen', {
+              cat: cat,
+              itemsubcat: itemsubcat,
+              type: 0,
+              unit:unit
+            });
+          } else if (selectedval?.name == 'Unit') {
+            navigation?.navigate('InventryUnitScreen', {
+              unit: unit,
+              text: 'Add Unit',
             });
           }
         }}
@@ -570,6 +847,7 @@ export default function InventryScreen() {
           </View>
         </View>
       </Modal>
+
       <Portal>
         <Modalize
           ref={Care}

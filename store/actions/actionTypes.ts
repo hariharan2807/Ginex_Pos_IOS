@@ -13,3 +13,6 @@ export const USER_INFO = 'USER_INFO';
 export const USER_LOCATION = 'USER_LOCATION';
 export const SUPER_ADMIN_DETAILS = 'SUPER_ADMIN_DETAILS';
 export const REPORT_LIST_DATA = 'REPORT_LIST_DATA';
+export const UPDATE_CART = 'UPDATE_CART';
+
+

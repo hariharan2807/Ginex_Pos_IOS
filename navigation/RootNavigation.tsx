@@ -20,7 +20,13 @@ import {
   CustomizedReportScreeen,
 } from '../Screen/ReportListScreen';
 import ReportScreen from '../Screen/ReportScreen';
-import { InventryCategoryScreen ,InventrySubCategoryScreen} from '../Screen/InventryCategoryScreen';
+import {
+  InventryCategoryScreen,
+  InventrySubCategoryScreen,
+  InventryUnitScreen,
+} from '../Screen/InventryCategoryScreen';
+import {AddProductScreen} from '../Screen/ProductScreen';
+import SearchScreen from '../Screen/SearchScreen';
 
 // import TomorrowOrderScreen from '../Screen/TomorrowOrderScreen';
 
@@ -89,12 +95,20 @@ export default function RootNavigation() {
             name="InventryCategoryScreen"
             component={InventryCategoryScreen}
           />
-          
-      <RootNavigator.Screen
+
+          <RootNavigator.Screen
             name="InventrySubCategoryScreen"
             component={InventrySubCategoryScreen}
           />
-
+          <RootNavigator.Screen
+            name="AddProductScreen"
+            component={AddProductScreen}
+          />
+          <RootNavigator.Screen name="SearchScreen" component={SearchScreen} />
+          <RootNavigator.Screen
+            name="InventryUnitScreen"
+            component={InventryUnitScreen}
+          />
         </RootNavigator.Navigator>
       </Host>
     </NavigationContainer>

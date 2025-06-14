@@ -2,6 +2,8 @@ import {PermissionsAndroid, Platform} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import {request, PERMISSIONS} from 'react-native-permissions';
 import Toast from 'react-native-toast-message';
+import store from '../store';
+import { handleError, updateCart } from '../store/actions/userActions';
 
 export const acquireGPSPermission = async () => {
   try {
@@ -110,7 +112,7 @@ export function CartItemUniqueId(
   selected_addons: any,
 ) {
   try {
-    let uniqueId = `${shop_id}*${product_id}-${selected_var.product_variation_id}+`;
+    let uniqueId = `${shop_id}*${product_id}-${selected_var.product_price_id}+`;
     if (selected_addons.length > 0) {
       let ids = [];
       for (let i of selected_addons) {
@@ -163,7 +165,24 @@ export const getGPSPermission = async () => {
     };
   }
 };
-
+export const updateItemQuantityAction = (payload: {
+  uuid: string;
+  quantity: number;
+}) => {
+  return async (dispatch: any) => {
+    try {
+      const cart = [...store.getState().user.cart];
+      const index = cart.findIndex(item => item.uuid === payload.uuid);
+      if (index !== -1) {
+        cart[index].quantity = payload.quantity;
+        dispatch(updateCart(cart)); // this should be your reducer action
+      }
+    } catch (err) {
+      console.log(err);
+      dispatch(handleError(`updateItemQuantityAction()`));
+    }
+  };
+};
 export const resetToInitialScreen = async (
   CommonActions: any,
   navigation: any,
@@ -329,3 +348,23 @@ export const getStoragePermission = async () => {
     };
   }
 };
+export function cartItemUniqueIdGen(
+  product_id: any,
+  selected_var: any,
+  // selected_addons: any,
+) {
+  try {
+    let uniqueId = `${product_id}-${selected_var.product_price_id}+`;
+    // if (selected_addons.length > 0) {
+    //   let ids = [];
+    //   for (let i of selected_addons) {
+    //     ids.push(`${i.addon_id}`);
+    //   }
+    //   uniqueId = `${uniqueId}${ids.join('+')}`;
+    // }
+    return uniqueId;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+}

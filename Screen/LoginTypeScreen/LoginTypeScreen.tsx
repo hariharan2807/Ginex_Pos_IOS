@@ -15,10 +15,10 @@ export default function LoginTypeScreen() {
   console.warn("hi---->")
   return (
     <View style={[tailwind('h-full bg-primary')]}>
-      <View style={[tailwind('items-center mt-3'), {height: height / 2}]}>
+      <View style={[tailwind('items-center mt-3'), {height: height / 1}]}>
         <Image
           resizeMode="contain"
-          style={[tailwind(''), {height: 30, width: '50%'}]}
+          style={[tailwind(''), {height: 100, width: '50%'}]}
           source={assets_manifest.Text}
         />
         <Image

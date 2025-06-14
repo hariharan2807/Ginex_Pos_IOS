@@ -45,7 +45,6 @@ export default function LoginScreen() {
     let obj = {login: mobile, password: password, status: data};
     const Response = await getLoginremote(obj);
     setLoading(false);
-    console.log('ResponseResponseResponse', Response);
     if (Response?.status) {
       try {
         dispatch(saveJWTTokenAction(Response?.token));
@@ -78,8 +77,8 @@ export default function LoginScreen() {
   };
   console.log('data------>', data);
   return (
-    <View style={[tailwind('bg-primary'),{height:"100%"}]}>
-      <View style={[tailwind('items-center mt-3'), {height: "50%"}]}>
+    <View style={[tailwind('bg-primary'), {height: '100%'}]}>
+      <View style={[tailwind('items-center mt-3'), {height: '50%'}]}>
         <View style={[tailwind('flex-row items-center px-3'), {}]}>
           <TouchableOpacity
             onPress={() => {
@@ -121,7 +120,7 @@ export default function LoginScreen() {
         style={[
           tailwind('bg-white p-5'),
           {
-            height: "50%",
+            height: '50%',
             borderTopRightRadius: 15,
             borderTopLeftRadius: 15,
           },
@@ -237,16 +236,14 @@ export default function LoginScreen() {
       <Modal
         backdropOpacity={0.15}
         onBackdropPress={() => setOpen(false)}
-
         style={[
           tailwind(' h-full items-center justify-center '),
           {backgroundColor: 'transparent'},
         ]}
-        
         isVisible={open}>
         <View
           style={[
-            tailwind('rounded-xl mx-3 px-5 py-5 items-center'),
+            tailwind('rounded-xl  px-5 py-5 items-center'),
             {backgroundColor: '#ffffff'},
           ]}>
           <Text style={[tailwind('font-17 font-semi'), {}]}>

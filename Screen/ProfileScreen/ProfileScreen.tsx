@@ -325,7 +325,9 @@ export default function ProfileScreen() {
             {},
           ]}>
           {userProfile?.name && (
-            <Text style={[tailwind('font-bold font-15'), {}]}>Adaikalm</Text>
+            <Text style={[tailwind('font-bold font-15'), {}]}>
+              {userProfile?.name}
+            </Text>
           )}
           {userProfile?.incharge_name && (
             <Text style={[tailwind('font-medium font-14 mt-1'), {}]}>
@@ -627,8 +629,8 @@ export default function ProfileScreen() {
           isVisible={report}>
           <View
             style={[
-              tailwind('rounded-xl mx-3 px-5 py-5 '),
-              {backgroundColor: '#ffffff'},
+              tailwind('rounded-xl  px-5 py-5 '),
+              {backgroundColor: '#ffffff', width: '100%'},
             ]}>
             <TouchableOpacity
               onPress={() => {

@@ -39,7 +39,6 @@ export default function ReportScreen() {
 
       setDataVal(null);
     }
-    // console.log('ResponseResponseResponseResponse', Response?.data);
   };
   if (loading) {
     return <Loadingcomp />;

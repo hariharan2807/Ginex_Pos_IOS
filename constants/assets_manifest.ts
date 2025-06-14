@@ -6,7 +6,7 @@ export default {
   Right:require('../asset/image/Right.png'),
   Bluetooth:require('../asset/image/bluethooth.png'),
   usb:require('../asset/image/usb.png'),
-  editing:require('../asset/image/editing.png'),
+  editing:require('../asset/image/editing1.png'),
   printer:require('../asset/image/printer.png'),
   plan:require('../asset/image/plan.png'),
   lock:require('../asset/image/lock.png'),
@@ -24,6 +24,6 @@ export default {
   inventry1:require('../asset/image/inventry1.png'),
   search:require('../asset/image/search.png'),
   delete:require('../asset/image/delete.png'),
-
+  loading:require('../asset/image/loading.png')
   
 };

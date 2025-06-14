@@ -1,4 +1,10 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  ActivityIndicator,
+} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import tailwind from '@tailwind';
 import {TopBar} from '@sharedComponents';
@@ -13,19 +19,18 @@ import {GetLoginData} from '../../workers/localStorage';
 
 export default function InventryCategoryScreen() {
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
   const route = useRoute();
   const [catName, setCatname] = useState('');
   const [picture, setPicture] = useState(null);
   const [logout, setLogOut] = useState(false);
   const [category_image, setcategory_image] = useState('');
-  console.log('oute?.params?.category_image', route?.params?.category_image);
   useEffect(() => {
     if (route?.params?.category_id != '') {
       setcategory_image(route?.params?.category_image);
       setCatname(route?.params?.category_name);
     }
   }, []);
-  console.log('category_imagecategory_image', category_image);
   const onImageLibraryPress = useCallback(async () => {
     const options = {
       selectionLimit: 1,
@@ -59,39 +64,55 @@ export default function InventryCategoryScreen() {
   //   };
   const Onpress = () => {
     setPicture(null);
-    setcategory_image('')
+    setcategory_image('');
     setLogOut(false);
   };
   const NewCat = async () => {
+    setLoading(true);
     const Data = await GetLoginData();
     if (!catName) {
       errorBox('Please Enter Category Name');
       return;
-    } else if (!picture?.uri) {
-      if (!(picture?.name || picture?.assets[0].fileName)) {
-        errorBox('Selected Your Category Image ');
-        return;
-      }
     }
+    // else if (!picture?.uri) {
+    //   if (!(picture?.name || picture?.assets[0].fileName)) {
+    //     errorBox('Selected Your Category Image ');
+    //     return;
+    //   }
+    // }
     const formdata = new FormData();
     formdata.append('category_name', catName);
-    formdata.append('category_image', {
-      uri: picture.uri || picture?.assets[0].uri,
-      name: picture.name || picture?.assets[0].fileName,
-      type: picture.type || picture?.assets[0].type,
-    });
+    // formdata.append('category_image', {
+    //   uri: picture.uri || picture?.assets[0].uri,
+    //   name: picture.name || picture?.assets[0].fileName,
+    //   type: picture.type || picture?.assets[0].type,
+    // });
+    const imageUri = picture?.uri || picture?.assets?.[0]?.uri;
+    const imageName = picture?.name || picture?.assets?.[0]?.fileName;
+    const imageType = picture?.type || picture?.assets?.[0]?.type;
+
+    if (imageUri && imageName && imageType) {
+      formdata.append('category_image', {
+        uri: imageUri,
+        name: imageName,
+        type: imageType,
+      });
+    }
     formdata.append('status', Data?.status);
     const Response = await getAddCategoryremote(formdata);
+    setLoading(false);
+
     if (Response?.status) {
+      setLoading(false);
       navigation?.goBack();
     } else {
+      setLoading(false);
       console.log('Response', Response);
       errorBox(Response?.res?.message);
     }
   };
   const EditCat = async () => {
     const Data = await GetLoginData();
-
     const formdata = new FormData();
     formdata.append('category_name', catName);
     if (picture?.assets?.[0]?.uri) {
@@ -104,18 +125,17 @@ export default function InventryCategoryScreen() {
     } else {
       // If no new image, send the existing image URL if API expects it
       // You can send it as a string or skip this entirely if backend handles it
-      formdata.append('category_image', ""); // adjust key if needed
+      formdata.append('category_image', ''); // adjust key if needed
     }
     formdata.append('status', Data?.status);
     formdata.append('category_id', route?.params?.category_id);
-    const Response = await getEditCategoryremote(formdata)
-    if(Response?.status){
+    const Response = await getEditCategoryremote(formdata);
+    if (Response?.status) {
       navigation?.goBack();
-    }
-    else{
+    } else {
       errorBox(Response?.res?.message);
     }
-    console.log("getEditCategoryremote",Response)
+    console.log('getEditCategoryremote', Response);
   };
   return (
     <View style={[tailwind('h-full'), {}]}>
@@ -192,12 +212,10 @@ export default function InventryCategoryScreen() {
         </View>
         <TouchableOpacity
           onPress={() => {
-            if(route?.params?.category_id){
+            if (route?.params?.category_id) {
               EditCat();
-            }
-            else{
+            } else {
               NewCat();
-
             }
           }}
           style={[
@@ -206,13 +224,17 @@ export default function InventryCategoryScreen() {
             ),
             //   {backgroundColor: '#d9f1fc'},
           ]}>
-          <Text
-            style={[
-              tailwind('font-bold font-18 text-white text-center'),
-              {textTransform: 'uppercase'},
-            ]}>
-            SAVE
-          </Text>
+          {loading ? (
+            <ActivityIndicator color={'white'} size={'large'} />
+          ) : (
+            <Text
+              style={[
+                tailwind('font-bold font-18 text-white text-center'),
+                {textTransform: 'uppercase'},
+              ]}>
+              SAVE
+            </Text>
+          )}
         </TouchableOpacity>
       </View>
       <Modal

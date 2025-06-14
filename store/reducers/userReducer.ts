@@ -6,6 +6,7 @@ import {
   REPORT_LIST_DATA,
   SAVE_IP,
   SAVE_JWT_TOKEN,
+  UPDATE_CART,
   USER_INFO,
   VALUE_DATE,
 } from '../actions/actionTypes';
@@ -18,6 +19,8 @@ const initialState = {
   count: 20,
   user_info: null,
   report_list: null,
+  cart: [],
+
 };
 
 interface actionShape {
@@ -36,6 +39,11 @@ const User = (state = initialState, action: actionShape): any => {
       return {
         ...state,
         ip: action.payload,
+      };
+      case UPDATE_CART:
+      return {
+        ...state,
+        cart: action.payload,
       };
     case SAVE_JWT_TOKEN: {
       return {

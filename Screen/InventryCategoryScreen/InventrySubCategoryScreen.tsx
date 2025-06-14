@@ -77,7 +77,7 @@ export default function InventrySubCategoryScreen() {
     const Data = await GetLoginData();
 
     const Response = await getEditSubCategoryremote({
-      category_id: route?.params?.category_id,
+      category_id: valueObj?.category_id,
       sub_category_id: route?.params?.subcategory_id,
       status: Data?.status,
       sub_category_name: subcat,
